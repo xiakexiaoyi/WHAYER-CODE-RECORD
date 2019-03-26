@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C0438496-28D5-47BF-8A9E-57C0580E987C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>OilLevel</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>OilLevelLoc</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;OILLEVEL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\src\facedespot;..\src\filter;..\src\gradient;..\src\hisi;..\src\image;..\src\imagepro;..\src\imgfmt_trans;..\src\licommon;..\src\mask;..\src\Match;..\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;OILLEVEL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\src\colorseg;..\src\colorsegment;..\src\facedespot;..\src\filter;..\src\gradient;..\src\hisi;..\src\image;..\src\imagepro;..\src\imgfmt_trans;..\src\licommon;..\src\mask;..\src\Match;E:\new project\random tree\src\licommon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;OILLEVEL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\src\facedespot;..\src\filter;..\src\gradient;..\src\hisi;..\src\image;..\src\imagepro;..\src\imgfmt_trans;..\src\licommon;..\src\mask;..\src\Match;..\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;OILLEVEL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src;..\src\facedespot;..\src\filter;..\src\gradient;..\src\hisi;..\src\image;..\src\imagepro;..\src\imgfmt_trans;..\src\licommon;..\src\mask;..\src\Match;..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\facedespot\bbgeometry.c" />
+    <ClCompile Include="..\src\facedespot\blobfilter.c" />
+    <ClCompile Include="..\src\facedespot\liedge.c" />
+    <ClCompile Include="..\src\facedespot\liresize.c" />
+    <ClCompile Include="..\src\facedespot\ncc.c" />
+    <ClCompile Include="..\src\facedespot\symtrans.c" />
+    <ClCompile Include="..\src\filter\HaarResponse.c" />
+    <ClCompile Include="..\src\gradient\gradient.c" />
+    <ClCompile Include="..\src\hisi\hisi.c" />
+    <ClCompile Include="..\src\HYL_OilLevel.cpp" />
+    <ClCompile Include="..\src\imagepro\hough.c" />
+    <ClCompile Include="..\src\imagepro\sort.c" />
+    <ClCompile Include="..\src\image\liblock.c" />
+    <ClCompile Include="..\src\image\lichannel.c" />
+    <ClCompile Include="..\src\image\liconv.cpp" />
+    <ClCompile Include="..\src\image\liimage.c" />
+    <ClCompile Include="..\src\image\liintegral.c" />
+    <ClCompile Include="..\src\image\limorph.cpp" />
+    <ClCompile Include="..\src\image\lineSegment_ex.c" />
+    <ClCompile Include="..\src\image\lithres.cpp" />
+    <ClCompile Include="..\src\image\liwatermark.c" />
+    <ClCompile Include="..\src\image\liyuv_hue.cpp" />
+    <ClCompile Include="..\src\image\resample.c" />
+    <ClCompile Include="..\src\image\rotateBlock.c" />
+    <ClCompile Include="..\src\imgfmt_trans\liimgfmttrans.c" />
+    <ClCompile Include="..\src\imgfmt_trans\lirgb_yuv.c" />
+    <ClCompile Include="..\src\licommon\lidebug.c" />
+    <ClCompile Include="..\src\licommon\limem.c" />
+    <ClCompile Include="..\src\licommon\lisort.c" />
+    <ClCompile Include="..\src\licommon\litimer.c" />
+    <ClCompile Include="..\src\mask\facemask.c" />
+    <ClCompile Include="..\src\mask\limask.c" />
+    <ClCompile Include="..\src\Match\MatchRigidBody.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\inc\amcomdef.h" />
+    <ClInclude Include="..\inc\HYL_OilLevel.h" />
+    <ClInclude Include="..\src\facedespot\bbgeometry.h" />
+    <ClInclude Include="..\src\facedespot\blobfilter.h" />
+    <ClInclude Include="..\src\facedespot\facedespot.h" />
+    <ClInclude Include="..\src\facedespot\liedge.h" />
+    <ClInclude Include="..\src\facedespot\liresize.h" />
+    <ClInclude Include="..\src\facedespot\ncc.h" />
+    <ClInclude Include="..\src\facedespot\symtrans.h" />
+    <ClInclude Include="..\src\filter\HaarResponse.h" />
+    <ClInclude Include="..\src\gradient\gradient.h" />
+    <ClInclude Include="..\src\hisi\hisi.h" />
+    <ClInclude Include="..\src\imagepro\hough.h" />
+    <ClInclude Include="..\src\imagepro\sort.h" />
+    <ClInclude Include="..\src\image\liblock.h" />
+    <ClInclude Include="..\src\image\lichannel.h" />
+    <ClInclude Include="..\src\image\liconv.h" />
+    <ClInclude Include="..\src\image\liimage.h" />
+    <ClInclude Include="..\src\image\liintegral.h" />
+    <ClInclude Include="..\src\image\limorph.h" />
+    <ClInclude Include="..\src\image\lineSegment_ex.h" />
+    <ClInclude Include="..\src\image\lithres.h" />
+    <ClInclude Include="..\src\image\liwatermark.h" />
+    <ClInclude Include="..\src\image\liyuv_hue.h" />
+    <ClInclude Include="..\src\image\resample.h" />
+    <ClInclude Include="..\src\image\rotateBlock.h" />
+    <ClInclude Include="..\src\imgfmt_trans\liimgfmttrans.h" />
+    <ClInclude Include="..\src\imgfmt_trans\lirgb_yuv.h" />
+    <ClInclude Include="..\src\licommon\licomdef.h" />
+    <ClInclude Include="..\src\licommon\lidebug.h" />
+    <ClInclude Include="..\src\licommon\lierrdef.h" />
+    <ClInclude Include="..\src\licommon\limath.h" />
+    <ClInclude Include="..\src\licommon\limem.h" />
+    <ClInclude Include="..\src\licommon\lisort.h" />
+    <ClInclude Include="..\src\licommon\litimer.h" />
+    <ClInclude Include="..\src\litrimfun.h" />
+    <ClInclude Include="..\src\mask\facemask.h" />
+    <ClInclude Include="..\src\mask\limask.h" />
+    <ClInclude Include="..\src\Match\MatchRigidBody.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\blur">
+      <UniqueIdentifier>{963a4f82-1019-4f4b-a360-9a3051ccba0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\facedespot">
+      <UniqueIdentifier>{aa2392f7-994e-49c5-8aae-f6d4f49015f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\image">
+      <UniqueIdentifier>{54b07a80-5236-4f77-b855-008a8291b3b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\imgfmt_trans">
+      <UniqueIdentifier>{ab4a8a62-73d0-4e32-b955-cbb1557ad6a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\licommon">
+      <UniqueIdentifier>{3efdc88a-7aa4-4e31-a52f-a95002fc4a5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\light">
+      <UniqueIdentifier>{cdb05c06-e81a-49ff-a0a5-55870cbbb727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mask">
+      <UniqueIdentifier>{a4bef41f-a305-4ca4-886e-7c7d3565b0da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gradient">
+      <UniqueIdentifier>{eb2b24b2-66d9-4edc-bd87-aa570099de4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\mask\match">
+      <UniqueIdentifier>{22076481-e143-4950-b108-5f989de3eed3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\ammem.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\blur\DFT.h">
+      <Filter>Source Files\blur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\blur\FmttransYUV2BGR.h">
+      <Filter>Source Files\blur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\blur\liblur.h">
+      <Filter>Source Files\blur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\blur\LiFrmDif.h">
+      <Filter>Source Files\blur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\blur\ligaussian.h">
+      <Filter>Source Files\blur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\bbgeometry.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\blobfilter.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\chinesetransform.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\facedespot.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\liedge.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\limorph.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\LineGeometry.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\liresize.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\ncc.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\symtrans.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\libbmp.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liblock.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\lichannel.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liconv.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\LiErrFunc.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liimage.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liimfilter.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liintegral.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\linoise.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liwatermark.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\resample.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\rotateBlock.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imgfmt_trans\liimgfmttrans.h">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imgfmt_trans\lirgb_yuv.h">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imgfmt_trans\lirgb_yuv_ex.h">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imgfmt_trans\liyuv_hue.h">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\licomdef.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\lidebug.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\lierrdef.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\limath.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\limatrix.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\limem.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\lisort.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\lithread.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\litimer.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\litrimfun.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\light\LiBright.h">
+      <Filter>Source Files\light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\light\Lihist.h">
+      <Filter>Source Files\light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\mask\facemask.h">
+      <Filter>Source Files\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\mask\limask.h">
+      <Filter>Source Files\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gradient\gradient.h">
+      <Filter>Source Files\gradient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\HY_IMAGEQUALITY.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\HY_IMAGEQUALITY.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\blur\DFT.c">
+      <Filter>Source Files\blur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\blur\FmttransYUV2BGR.c">
+      <Filter>Source Files\blur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\blur\Liblur.c">
+      <Filter>Source Files\blur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\blur\LiFrmDif.c">
+      <Filter>Source Files\blur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\blur\Ligaussian.c">
+      <Filter>Source Files\blur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\bbgeometry.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\blobfilter.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\chinesetransform.cpp">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\liedge.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\limorph.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\LineGeometry.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\liresize.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\ncc.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\symtrans.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\libbmp.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liblock.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\lichannel.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liconv.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\LiErrFunc.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liimage.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liimfilter.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liintegral.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\linoise.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liwatermark.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\resample.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\rotateBlock.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imgfmt_trans\liimgfmttrans.c">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imgfmt_trans\lirgb_yuv.c">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imgfmt_trans\lirgb_yuv_ex.c">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imgfmt_trans\liyuv_hue.c">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\lidebug.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\limatrix.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\limem.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\lisort.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\lithread.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\litimer.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\light\LiBright.c">
+      <Filter>Source Files\light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\light\lihist.c">
+      <Filter>Source Files\light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mask\facemask.c">
+      <Filter>Source Files\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mask\limask.c">
+      <Filter>Source Files\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gradient\gradient.c">
+      <Filter>Source Files\gradient</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

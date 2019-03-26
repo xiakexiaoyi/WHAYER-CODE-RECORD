@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed_win32", "testbed_win32.vcxproj", "{DBCA2E1B-B17C-4E8E-9405-5D1A82E51BE5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HYMeterRecog", "..\..\makefile\HYMeterRecog_win32\HYMeterRecog.vcxproj", "{2D5ACA4C-2665-4E87-BE49-F66A9F76FB55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBCA2E1B-B17C-4E8E-9405-5D1A82E51BE5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DBCA2E1B-B17C-4E8E-9405-5D1A82E51BE5}.Debug|Win32.Build.0 = Debug|Win32
+		{DBCA2E1B-B17C-4E8E-9405-5D1A82E51BE5}.Release|Win32.ActiveCfg = Release|Win32
+		{DBCA2E1B-B17C-4E8E-9405-5D1A82E51BE5}.Release|Win32.Build.0 = Release|Win32
+		{2D5ACA4C-2665-4E87-BE49-F66A9F76FB55}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2D5ACA4C-2665-4E87-BE49-F66A9F76FB55}.Debug|Win32.Build.0 = Debug|Win32
+		{2D5ACA4C-2665-4E87-BE49-F66A9F76FB55}.Release|Win32.ActiveCfg = Release|Win32
+		{2D5ACA4C-2665-4E87-BE49-F66A9F76FB55}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

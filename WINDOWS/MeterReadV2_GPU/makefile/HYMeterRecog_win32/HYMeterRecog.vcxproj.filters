@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\colorseg">
+      <UniqueIdentifier>{1a666648-9172-42f1-8560-cb5d14aabdfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\facedespot">
+      <UniqueIdentifier>{850c7321-01c8-404b-b78e-5cfa6da99c7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\filter">
+      <UniqueIdentifier>{424b34f1-ff74-45f1-8109-65c718a1de48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gradient">
+      <UniqueIdentifier>{4164df76-3e5f-4146-8f7f-01d88f7263ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\hisi">
+      <UniqueIdentifier>{10026e25-1c84-4cd4-8ab6-6283aea7cc0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\image">
+      <UniqueIdentifier>{2a5ace46-3ed5-45ee-ad94-13a446835317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\imagepro">
+      <UniqueIdentifier>{241ffe00-5171-4a21-add8-b822da7b3c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\licommon">
+      <UniqueIdentifier>{7cb92826-2c55-4c3b-a7a5-28f7602cdca3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\imgfmt_trans">
+      <UniqueIdentifier>{f22f3a04-778a-4a9f-aa59-c6f841ed51e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mask">
+      <UniqueIdentifier>{78b33d59-aa24-4bde-bed6-7ef006a57db7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\match">
+      <UniqueIdentifier>{558ec4da-9cb0-4292-9b42-5cf49fd1ae3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Source Files\RidMatch_ydq">
+      <UniqueIdentifier>{57a402d6-bab2-4a01-a4cd-2ca77f9537bb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\HY_meterReg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\colorseg\snake.c">
+      <Filter>Source Files\colorseg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\bbgeometry.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\blobfilter.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\liedge.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\liresize.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\ncc.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\facedespot\symtrans.c">
+      <Filter>Source Files\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\HaarResponse.c">
+      <Filter>Source Files\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gradient\gradient.c">
+      <Filter>Source Files\gradient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\hisi\hisi.c">
+      <Filter>Source Files\hisi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liblock.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\lichannel.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liimage.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liintegral.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\liwatermark.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\resample.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\image\rotateBlock.c">
+      <Filter>Source Files\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imagepro\hough.c">
+      <Filter>Source Files\imagepro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imagepro\sort.c">
+      <Filter>Source Files\imagepro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\lidebug.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\limem.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\lisort.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\licommon\litimer.c">
+      <Filter>Source Files\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imgfmt_trans\liimgfmttrans.c">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\imgfmt_trans\lirgb_yuv.c">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mask\facemask.c">
+      <Filter>Source Files\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\mask\limask.c">
+      <Filter>Source Files\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Match\MatchRigidBody.c">
+      <Filter>Source Files\match</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RidMatch_ydq\wyMatchRigidBody.c">
+      <Filter>Source Files\RidMatch_ydq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RidMatch_ydq\wyMatchRigidBodyIF.c">
+      <Filter>Source Files\RidMatch_ydq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RidMatch_ydq\wyVAFunc.c">
+      <Filter>Source Files\RidMatch_ydq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\filter\SaliencyDetect.cpp">
+      <Filter>Source Files\filter</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\litrimfun.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\colorseg\snake.h">
+      <Filter>Source Files\colorseg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\bbgeometry.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\blobfilter.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\facedespot.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\liedge.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\liresize.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\ncc.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\facedespot\symtrans.h">
+      <Filter>Source Files\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\filter\HaarResponse.h">
+      <Filter>Source Files\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gradient\gradient.h">
+      <Filter>Source Files\gradient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\hisi\hisi.h">
+      <Filter>Source Files\hisi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liblock.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\lichannel.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liimage.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liintegral.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\liwatermark.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\resample.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\image\rotateBlock.h">
+      <Filter>Source Files\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imagepro\hough.h">
+      <Filter>Source Files\imagepro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imagepro\sort.h">
+      <Filter>Source Files\imagepro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\licomdef.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\lidebug.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\lierrdef.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\limath.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\limem.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\lisort.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\licommon\litimer.h">
+      <Filter>Source Files\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imgfmt_trans\liimgfmttrans.h">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\imgfmt_trans\lirgb_yuv.h">
+      <Filter>Source Files\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\mask\facemask.h">
+      <Filter>Source Files\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\mask\limask.h">
+      <Filter>Source Files\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Match\MatchRigidBody.h">
+      <Filter>Source Files\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\amcomdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RidMatch_ydq\wyMatchRigidBody.h">
+      <Filter>Source Files\RidMatch_ydq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RidMatch_ydq\wyVAFunc.h">
+      <Filter>Source Files\RidMatch_ydq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RidMatch_ydq\sdkMacro.h">
+      <Filter>Source Files\RidMatch_ydq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\wyMatchRigidBodyIF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\wyMatchRigidBodyStruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\wyVACommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\filter\SaliencyDetect.h">
+      <Filter>Source Files\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\inc\HYAMR_meterReg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

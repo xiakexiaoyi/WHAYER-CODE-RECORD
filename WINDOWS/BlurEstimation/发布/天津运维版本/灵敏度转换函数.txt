@@ -1,0 +1,47 @@
+void BrightSensitivity_thresh(float *pDarkthresh,float *plightthresh,float brightSensitivity)
+{
+     if (brightSensitivity>=50)
+     {
+		 *pDarkthresh=-0.5*brightSensitivity+50;
+		 *plightthresh=-1.5*brightSensitivity+150;
+     } 
+     else
+     {
+		 *pDarkthresh=-0.5*brightSensitivity+100;
+		 *plightthresh=-1.5*brightSensitivity+100;
+     }
+}
+
+void ClearSensitivity_thresh(float *pClearLevellowthresh,float *pClearLevelhightthresh,float clearSensitivity)
+{
+
+	if (clearSensitivity>=50)
+	{
+		*pClearLevellowthresh=-0.028*clearSensitivity+2.8;
+		*pClearLevelhightthresh=-0.4*clearSensitivity+40;
+	} 
+	else
+	{
+		*pClearLevellowthresh=-1.972*clearSensitivity+100;
+		*pClearLevelhightthresh=-1.6*clearSensitivity+100;
+	}
+}
+
+void NoiseSensitivity_thresh(float *pNoiseLevellowthresh,float *pNoiseLevelhighthresh,float noiseSensitivity)
+{
+	if (noiseSensitivity>=50)
+	{
+		*pNoiseLevellowthresh=-(3*noiseSensitivity)/50+6;
+		*pNoiseLevelhighthresh=-0.4*noiseSensitivity+40;
+	} 
+	else
+	{
+		*pNoiseLevellowthresh=-(97*noiseSensitivity)/50+100;
+		*pNoiseLevelhighthresh=-1.6*noiseSensitivity+100;
+	}
+}
+
+void CastSensitivity_thresh(float *pCastthresh,float castSensitivity)
+{
+      *pCastthresh=-castSensitivity+100;
+}

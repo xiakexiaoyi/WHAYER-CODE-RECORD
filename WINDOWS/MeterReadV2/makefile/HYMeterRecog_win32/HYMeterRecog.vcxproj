@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2D5ACA4C-2665-4E87-BE49-F66A9F76FB55}</ProjectGuid>
+    <RootNamespace>HYMeterRecog</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../src/licommon;../../src/;../../inc;../../src/imgfmt_trans;../../src/imagepro;../../src/image;../../src/hisi;../../src/gradient;../../src/filter;../../src/facedespot;../../src/colorseg;../../src/match;../../src/mask;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE ;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>../../lib/win32/HYAlgorithm.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>../../src/licommon;../../src/;../../inc;../../src/imgfmt_trans;../../src/imagepro;../../src/image;../../src/hisi;../../src/gradient;../../src/filter;../../src/facedespot;../../src/colorseg;../../src/match;../../src/mask;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Lib>
+      <OutputFile>../../lib/win32/HYMeterRecog.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\filter\SaliencyDetect.cpp" />
+    <ClCompile Include="..\..\src\HY_meterReg.c" />
+    <ClCompile Include="..\..\src\RidMatch_ydq\wyMatchRigidBody.c" />
+    <ClCompile Include="..\..\src\RidMatch_ydq\wyMatchRigidBodyIF.c" />
+    <ClCompile Include="..\..\src\RidMatch_ydq\wyVAFunc.c" />
+    <ClCompile Include="..\..\src\version.c" />
+    <ClCompile Include="..\..\src\colorseg\snake.c" />
+    <ClCompile Include="..\..\src\facedespot\bbgeometry.c" />
+    <ClCompile Include="..\..\src\facedespot\blobfilter.c" />
+    <ClCompile Include="..\..\src\facedespot\liedge.c" />
+    <ClCompile Include="..\..\src\facedespot\liresize.c" />
+    <ClCompile Include="..\..\src\facedespot\ncc.c" />
+    <ClCompile Include="..\..\src\facedespot\symtrans.c" />
+    <ClCompile Include="..\..\src\filter\HaarResponse.c" />
+    <ClCompile Include="..\..\src\gradient\gradient.c" />
+    <ClCompile Include="..\..\src\hisi\hisi.c" />
+    <ClCompile Include="..\..\src\image\liblock.c" />
+    <ClCompile Include="..\..\src\image\lichannel.c" />
+    <ClCompile Include="..\..\src\image\liimage.c" />
+    <ClCompile Include="..\..\src\image\liintegral.c" />
+    <ClCompile Include="..\..\src\image\liwatermark.c" />
+    <ClCompile Include="..\..\src\image\resample.c" />
+    <ClCompile Include="..\..\src\image\rotateBlock.c" />
+    <ClCompile Include="..\..\src\imagepro\hough.c" />
+    <ClCompile Include="..\..\src\imagepro\sort.c" />
+    <ClCompile Include="..\..\src\licommon\lidebug.c" />
+    <ClCompile Include="..\..\src\licommon\limem.c" />
+    <ClCompile Include="..\..\src\licommon\lisort.c" />
+    <ClCompile Include="..\..\src\licommon\litimer.c" />
+    <ClCompile Include="..\..\src\imgfmt_trans\liimgfmttrans.c" />
+    <ClCompile Include="..\..\src\imgfmt_trans\lirgb_yuv.c" />
+    <ClCompile Include="..\..\src\mask\facemask.c" />
+    <ClCompile Include="..\..\src\mask\limask.c" />
+    <ClCompile Include="..\..\src\Match\MatchRigidBody.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\inc\HYAMR_meterReg.h" />
+    <ClInclude Include="..\..\inc\wyMatchRigidBodyIF.h" />
+    <ClInclude Include="..\..\inc\wyMatchRigidBodyStruct.h" />
+    <ClInclude Include="..\..\inc\wyVACommon.h" />
+    <ClInclude Include="..\..\src\filter\SaliencyDetect.h" />
+    <ClInclude Include="..\..\src\litrimfun.h" />
+    <ClInclude Include="..\..\src\colorseg\snake.h" />
+    <ClInclude Include="..\..\src\facedespot\bbgeometry.h" />
+    <ClInclude Include="..\..\src\facedespot\blobfilter.h" />
+    <ClInclude Include="..\..\src\facedespot\facedespot.h" />
+    <ClInclude Include="..\..\src\facedespot\liedge.h" />
+    <ClInclude Include="..\..\src\facedespot\liresize.h" />
+    <ClInclude Include="..\..\src\facedespot\ncc.h" />
+    <ClInclude Include="..\..\src\facedespot\symtrans.h" />
+    <ClInclude Include="..\..\src\filter\HaarResponse.h" />
+    <ClInclude Include="..\..\src\gradient\gradient.h" />
+    <ClInclude Include="..\..\src\hisi\hisi.h" />
+    <ClInclude Include="..\..\src\image\liblock.h" />
+    <ClInclude Include="..\..\src\image\lichannel.h" />
+    <ClInclude Include="..\..\src\image\liimage.h" />
+    <ClInclude Include="..\..\src\image\liintegral.h" />
+    <ClInclude Include="..\..\src\image\liwatermark.h" />
+    <ClInclude Include="..\..\src\image\resample.h" />
+    <ClInclude Include="..\..\src\image\rotateBlock.h" />
+    <ClInclude Include="..\..\src\imagepro\hough.h" />
+    <ClInclude Include="..\..\src\imagepro\sort.h" />
+    <ClInclude Include="..\..\src\licommon\licomdef.h" />
+    <ClInclude Include="..\..\src\licommon\lidebug.h" />
+    <ClInclude Include="..\..\src\licommon\lierrdef.h" />
+    <ClInclude Include="..\..\src\licommon\limath.h" />
+    <ClInclude Include="..\..\src\licommon\limem.h" />
+    <ClInclude Include="..\..\src\licommon\lisort.h" />
+    <ClInclude Include="..\..\src\licommon\litimer.h" />
+    <ClInclude Include="..\..\src\imgfmt_trans\liimgfmttrans.h" />
+    <ClInclude Include="..\..\src\imgfmt_trans\lirgb_yuv.h" />
+    <ClInclude Include="..\..\src\mask\facemask.h" />
+    <ClInclude Include="..\..\src\mask\limask.h" />
+    <ClInclude Include="..\..\src\Match\MatchRigidBody.h" />
+    <ClInclude Include="..\..\inc\amcomdef.h" />
+    <ClInclude Include="..\..\src\RidMatch_ydq\sdkMacro.h" />
+    <ClInclude Include="..\..\src\RidMatch_ydq\wyMatchRigidBody.h" />
+    <ClInclude Include="..\..\src\RidMatch_ydq\wyVAFunc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

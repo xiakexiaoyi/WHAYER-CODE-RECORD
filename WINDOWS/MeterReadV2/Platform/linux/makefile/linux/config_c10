@@ -1,0 +1,11 @@
+CC			= gcc
+CPP			= g++
+AR			= ar
+
+CFLAGS		= 
+CPPFLAGS	= 
+
+OBJPATH		= ../../int/
+LIBDIR		= ../../libs/linux/
+LIBS		= 
+

@@ -1,0 +1,38 @@
+Name: 29x29-20C4.0-MP2-40C5.0-MP3-150N
+Number of layers: 7
+
+Layer type: input
+Number of neurons: 841
+Number of maps: 1
+Size: 29 29
+Image processing: 0
+
+Layer type: convolutional
+Number of maps: 20
+Kernel size: 4 4
+Subsample size: 0 0
+Connection table: full
+Activation function: scaled_tanh
+
+Layer type: max_pooling
+Kernel size: 2 2
+Skip: 2 2
+
+Layer type: convolutional
+Number of maps: 40
+Kernel size: 5 5
+Subsample size: 0 0
+Connection table: full
+Activation function: scaled_tanh
+
+Layer type: max_pooling
+Kernel size: 3 3
+Skip: 3 3
+
+Layer type: fully_connected
+Number of neurons: 150
+Activation function: scaled_tanh
+
+Layer type: fully_connected
+Number of neurons: 11
+Activation function: soft_max

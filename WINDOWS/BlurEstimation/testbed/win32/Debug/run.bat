@@ -1,0 +1,1 @@
+testVideo.exe "C:\Users\fyu\Desktop\info\noise.ps_1" 0 0 30 1 15

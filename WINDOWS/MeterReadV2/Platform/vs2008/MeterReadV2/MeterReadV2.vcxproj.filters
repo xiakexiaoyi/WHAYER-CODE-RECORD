@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="源文件\facedespot">
+      <UniqueIdentifier>{03995952-9e06-4f10-aa67-2e665f4a8eaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\filter">
+      <UniqueIdentifier>{66334705-7528-4622-80db-70daf85c77be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\gradient">
+      <UniqueIdentifier>{00202e27-064f-4897-a30a-71ebf3a33dbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\hisi">
+      <UniqueIdentifier>{d34dab7d-81df-4b5d-a91b-f3019aa8c6bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\image">
+      <UniqueIdentifier>{b5937cc2-981b-44db-8909-582d66294289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\imagepro">
+      <UniqueIdentifier>{4ec1d01a-96b4-433a-98c8-10dd4096827f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\imgfmt_trans">
+      <UniqueIdentifier>{672dd067-a4be-487f-a29b-03ce667f1292}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\licommon">
+      <UniqueIdentifier>{a3d8797b-d9bf-419b-a867-ce1c1d962fc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\mask">
+      <UniqueIdentifier>{05473fd8-808d-42b6-a122-e53df7dc19cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\match">
+      <UniqueIdentifier>{11c683b0-e7cf-4f01-9eb9-c264616e0b03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ridMatch_ydq">
+      <UniqueIdentifier>{1410c03d-efe2-466f-b90b-0206d9ab6cb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\colorseg">
+      <UniqueIdentifier>{5251c9cd-14b5-474f-9216-51ccde2bf2ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\HY_meterReg.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\version.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\facedespot\bbgeometry.c">
+      <Filter>源文件\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\facedespot\blobfilter.c">
+      <Filter>源文件\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\facedespot\liedge.c">
+      <Filter>源文件\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\facedespot\liresize.c">
+      <Filter>源文件\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\facedespot\ncc.c">
+      <Filter>源文件\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\facedespot\symtrans.c">
+      <Filter>源文件\facedespot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\filter\HaarResponse.c">
+      <Filter>源文件\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\filter\SaliencyDetect.cpp">
+      <Filter>源文件\filter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\gradient\gradient.c">
+      <Filter>源文件\gradient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\hisi\hisi.c">
+      <Filter>源文件\hisi</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\image\liblock.c">
+      <Filter>源文件\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\image\lichannel.c">
+      <Filter>源文件\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\image\liimage.c">
+      <Filter>源文件\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\image\liintegral.c">
+      <Filter>源文件\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\image\liwatermark.c">
+      <Filter>源文件\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\image\resample.c">
+      <Filter>源文件\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\image\rotateBlock.c">
+      <Filter>源文件\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\imagepro\hough.c">
+      <Filter>源文件\imagepro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\imagepro\sort.c">
+      <Filter>源文件\imagepro</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\imgfmt_trans\liimgfmttrans.c">
+      <Filter>源文件\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\imgfmt_trans\lirgb_yuv.c">
+      <Filter>源文件\imgfmt_trans</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\licommon\lidebug.c">
+      <Filter>源文件\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\licommon\limem.c">
+      <Filter>源文件\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\licommon\lisort.c">
+      <Filter>源文件\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\licommon\litimer.c">
+      <Filter>源文件\licommon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mask\facemask.c">
+      <Filter>源文件\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\mask\limask.c">
+      <Filter>源文件\mask</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\Match\MatchRigidBody.c">
+      <Filter>源文件\match</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\RidMatch_ydq\wyMatchRigidBody.c">
+      <Filter>源文件\ridMatch_ydq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\RidMatch_ydq\wyMatchRigidBodyIF.c">
+      <Filter>源文件\ridMatch_ydq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\RidMatch_ydq\wyVAFunc.c">
+      <Filter>源文件\ridMatch_ydq</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\colorseg\snake.c">
+      <Filter>源文件\colorseg</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\litrimfun.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\facedespot\bbgeometry.h">
+      <Filter>源文件\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\facedespot\blobfilter.h">
+      <Filter>源文件\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\facedespot\facedespot.h">
+      <Filter>源文件\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\facedespot\liedge.h">
+      <Filter>源文件\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\facedespot\liresize.h">
+      <Filter>源文件\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\facedespot\ncc.h">
+      <Filter>源文件\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\facedespot\symtrans.h">
+      <Filter>源文件\facedespot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\filter\HaarResponse.h">
+      <Filter>源文件\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\filter\SaliencyDetect.h">
+      <Filter>源文件\filter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\gradient\gradient.h">
+      <Filter>源文件\gradient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\hisi\hisi.h">
+      <Filter>源文件\hisi</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\image\liblock.h">
+      <Filter>源文件\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\image\lichannel.h">
+      <Filter>源文件\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\image\liimage.h">
+      <Filter>源文件\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\image\liintegral.h">
+      <Filter>源文件\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\image\liwatermark.h">
+      <Filter>源文件\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\image\resample.h">
+      <Filter>源文件\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\image\rotateBlock.h">
+      <Filter>源文件\image</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\imagepro\hough.h">
+      <Filter>源文件\imagepro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\imagepro\sort.h">
+      <Filter>源文件\imagepro</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\imgfmt_trans\liimgfmttrans.h">
+      <Filter>源文件\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\imgfmt_trans\lirgb_yuv.h">
+      <Filter>源文件\imgfmt_trans</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\licommon\licomdef.h">
+      <Filter>源文件\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\licommon\lidebug.h">
+      <Filter>源文件\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\licommon\lierrdef.h">
+      <Filter>源文件\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\licommon\limath.h">
+      <Filter>源文件\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\licommon\limem.h">
+      <Filter>源文件\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\licommon\lisort.h">
+      <Filter>源文件\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\licommon\litimer.h">
+      <Filter>源文件\licommon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mask\facemask.h">
+      <Filter>源文件\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\mask\limask.h">
+      <Filter>源文件\mask</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\Match\MatchRigidBody.h">
+      <Filter>源文件\match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\RidMatch_ydq\sdkMacro.h">
+      <Filter>源文件\ridMatch_ydq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\RidMatch_ydq\wyMatchRigidBody.h">
+      <Filter>源文件\ridMatch_ydq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\RidMatch_ydq\wyVAFunc.h">
+      <Filter>源文件\ridMatch_ydq</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\colorseg\snake.h">
+      <Filter>源文件\colorseg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\inc\amcomdef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\inc\HYAMR_meterReg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\inc\wyMatchRigidBodyIF.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\inc\wyMatchRigidBodyStruct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\inc\wyVACommon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

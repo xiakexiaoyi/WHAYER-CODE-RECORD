@@ -1,0 +1,1 @@
+testVideo.exe "C:\Users\fyu\Desktop\2014-09-12_noise\Embedded Net DVR_123.0.6.122_17_20140912140621_20140912153629_1410745602760.mp4" 0 0 30 1 15

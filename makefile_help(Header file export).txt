@@ -1,0 +1,4 @@
+makefile中：
+CFLAGS=-Wall -Wfatal-errors #-fvisibility=hidden  #控制linux动态链接库导出函数
+
+头文件函数前加__attribute ((visibility("default")))导出

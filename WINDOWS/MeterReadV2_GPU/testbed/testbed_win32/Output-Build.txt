@@ -1,0 +1,404 @@
+1>------ Rebuild All started: Project: HYMeterRecog, Configuration: Debug Win32 ------
+1>Deleting intermediate and output files for project 'HYMeterRecog', configuration 'Debug|Win32'
+1>Compiling...
+1>HY_meterReg.c
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(696) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(697) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(698) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(699) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(559) : warning C4101: 'timeEnd2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(558) : warning C4101: 'timeStart2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(560) : warning C4101: 'timeOfMatch2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(546) : warning C4101: 'pEdgeData' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(788) : warning C4996: 'fopen' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(234) : see declaration of 'fopen'
+1>        Message: 'This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(864) : warning C4013: 'strcmp' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(895) : warning C4013: 'strcpy' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(926) : warning C4013: 'malloc' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(926) : warning C4047: 'initializing' : 'MVoid *' differs in levels of indirection from 'int'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(981) : warning C4013: 'free' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(975) : warning C4102: 'EXT' : unreferenced label
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(957) : warning C4101: 'tDescriptorGroup' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1003) : warning C4996: 'fopen' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(234) : see declaration of 'fopen'
+1>        Message: 'This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1027) : warning C4996: 'fscanf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(249) : see declaration of 'fscanf'
+1>        Message: 'This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1031) : warning C4996: 'fscanf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(249) : see declaration of 'fscanf'
+1>        Message: 'This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1035) : warning C4996: 'fscanf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(249) : see declaration of 'fscanf'
+1>        Message: 'This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1046) : warning C4996: 'fscanf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(249) : see declaration of 'fscanf'
+1>        Message: 'This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1047) : warning C4996: 'fscanf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(249) : see declaration of 'fscanf'
+1>        Message: 'This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1051) : warning C4996: 'fscanf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(249) : see declaration of 'fscanf'
+1>        Message: 'This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1053) : warning C4244: '=' : conversion from 'MLong' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1014) : warning C4101: 'className' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1019) : warning C4101: 'tDescriptor' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1079) : warning C4101: 'ptDescriptor' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1132) : warning C4101: 'tmp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1132) : warning C4101: 'ptDescriptor' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1195) : warning C4101: 'tDescriptor' : unreferenced local variable
+1>version.c
+1>snake.c
+1>bbgeometry.c
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\bbgeometry.c(350) : warning C4101: 'tmpInt' : unreferenced local variable
+1>blobfilter.c
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\blobfilter.c(773) : warning C4244: 'function' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\blobfilter.c(773) : warning C4244: 'function' : conversion from 'MLong' to 'MByte', possible loss of data
+1>liedge.c
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\liedge.c(91) : warning C4244: '=' : conversion from 'MDWord' to 'MUInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\liedge.c(217) : warning C4244: 'function' : conversion from '__w64 unsigned int' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\liedge.c(328) : warning C4244: 'function' : conversion from '__w64 unsigned int' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\liedge.c(503) : warning C4244: 'function' : conversion from '__w64 unsigned int' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\facedespot\liedge.c(607) : warning C4244: 'function' : conversion from '__w64 unsigned int' to 'MLong', possible loss of data
+1>liresize.c
+1>ncc.c
+1>symtrans.c
+1>HaarResponse.c
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(102) : warning C4996: 'sprintf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(345) : see declaration of 'sprintf'
+1>        Message: 'This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(110) : warning C4996: 'sprintf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(345) : see declaration of 'sprintf'
+1>        Message: 'This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(121) : warning C4996: 'sprintf' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(345) : see declaration of 'sprintf'
+1>        Message: 'This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(66) : warning C4101: 'path3' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(64) : warning C4101: 'j' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(171) : warning C4102: 'EXT' : unreferenced label
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(156) : warning C4101: 'i' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(157) : warning C4101: 'j' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(226) : warning C4101: 'j' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(500) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(501) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(509) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(510) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(511) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(542) : warning C4013: 'memset' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(548) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(549) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(566) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(581) : warning C4098: 'RotateResponse' : 'void' function returning a value
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(579) : warning C4102: 'EXT' : unreferenced label
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(651) : warning C4244: '=' : conversion from 'MLong' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(623) : warning C4101: 'pMUint16Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(624) : warning C4101: 'pMUint32Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(622) : warning C4101: 'pMUint8Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(932) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(699) : warning C4101: 'fp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(679) : warning C4101: 'p2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(687) : warning C4101: 'param' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1109) : warning C4244: '=' : conversion from 'MLong' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1118) : warning C4102: 'EXT' : unreferenced label
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1081) : warning C4101: 'pMUint16Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1082) : warning C4101: 'pMUint32Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1080) : warning C4101: 'pMUint8Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1156) : warning C4244: 'function' : conversion from 'double' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1170) : warning C4244: 'function' : conversion from 'double' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1236) : warning C4244: '=' : conversion from 'MLong' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1250) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1269) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1488) : warning C4244: 'initializing' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1489) : warning C4244: 'initializing' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1508) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1509) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1510) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1511) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1545) : warning C4244: 'function' : conversion from 'MDouble' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1615) : warning C4244: 'function' : conversion from 'MDouble' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1632) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1657) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1695) : warning C4244: 'function' : conversion from 'double' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1503) : warning C4101: 'data1' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1503) : warning C4101: 'data7' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1503) : warning C4101: 'data6' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1503) : warning C4101: 'data3' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1481) : warning C4101: 'p2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1494) : warning C4101: 'dis3' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1503) : warning C4101: 'data2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1490) : warning C4101: 'angle' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1503) : warning C4101: 'data4' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1498) : warning C4101: 'sinA' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1503) : warning C4101: 'data5' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1753) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1733) : warning C4101: 'angle' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1779) : warning C4101: 'p2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1779) : warning C4101: 'p1' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1875) : warning C4101: 'pTmpRlt' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1873) : warning C4101: 'lRltExt' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1984) : warning C4102: 'EXT' : unreferenced label
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1945) : warning C4101: 'res' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1953) : warning C4101: 'pResData' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1948) : warning C4101: 'pMUint16Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1949) : warning C4101: 'pMUint32Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(1947) : warning C4101: 'pMUint8Data' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2039) : warning C4244: '=' : conversion from 'MLong' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2054) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2075) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2007) : warning C4101: 'lMaxNum' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2187) : warning C4244: '=' : conversion from 'MLong' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2200) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2246) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2264) : warning C4244: '=' : conversion from 'MLong' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2277) : warning C4244: 'function' : conversion from 'MDouble' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2277) : warning C4244: 'function' : conversion from 'MDouble' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2125) : warning C4101: 'lLocRight' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2128) : warning C4101: 'lLowThread' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2123) : warning C4101: 'lLoc' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2132) : warning C4101: 'lValue1' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2122) : warning C4101: 'lTempLoc' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2132) : warning C4101: 'lValue2' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(2125) : warning C4101: 'lLocLeft' : unreferenced local variable
+1>HaarWidth.c
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(62) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(63) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(64) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(65) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(79) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(126) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(133) : warning C4244: '=' : conversion from 'double' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(27) : warning C4101: 'Sign' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(32) : warning C4101: 'Flag' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(37) : warning C4101: 'bSeg' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(34) : warning C4101: 'j' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(186) : warning C4244: 'function' : conversion from 'MDouble' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(186) : warning C4244: 'function' : conversion from 'MDouble' to 'int', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(221) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(222) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(223) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(224) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(229) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(230) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(235) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(236) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(242) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(243) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(248) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(249) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(254) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(255) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(318) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(324) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(348) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(512) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(519) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(574) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(579) : warning C4244: '*=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(582) : warning C4244: '*=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(587) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(590) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(604) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(499) : warning C4101: 'j' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(641) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(656) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(627) : warning C4101: 'Sign' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(707) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(721) : warning C4018: '<' : signed/unsigned mismatch
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarwidth.c(728) : warning C4018: '<' : signed/unsigned mismatch
+1>gradient.c
+1>c:\users\ibm\desktop\oilammeterread\src\gradient\gradient.c(62) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\gradient\gradient.c(66) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\gradient\gradient.c(21) : warning C4101: 'ii' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\gradient\gradient.c(21) : warning C4101: 'jj' : unreferenced local variable
+1>hisi.c
+1>c:\users\ibm\desktop\oilammeterread\src\hisi\hisi.c(26) : warning C4013: 'memcpy' undefined; assuming extern returning int
+1>connectRegion.c
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(34) : error C2065: 'LI_ERR_INSIDE_PARAM_INVALID' : undeclared identifier
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(103) : error C2065: 'LI_ERR_REGION_NUM' : undeclared identifier
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(106) : warning C4244: '=' : conversion from 'MLong' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(309) : warning C4244: '=' : conversion from 'MLong' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(329) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(343) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(358) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(374) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(390) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(406) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(421) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(436) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(516) : warning C4244: '=' : conversion from 'MLong' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(536) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(550) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(565) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(581) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(597) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(613) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(628) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\connectregion.c(643) : warning C4244: '=' : conversion from 'MLong' to 'MByte', possible loss of data
+1>liblock.c
+1>lichannel.c
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '<<' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '<<' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '<<' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '<<' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '>>' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '<<' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '>>' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '<<' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(214) : warning C4293: '>>' : shift count negative or too big, undefined behavior
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(293) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(294) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(295) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(296) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(524) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(525) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(592) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\image\lichannel.c(593) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>liimage.c
+1>liintegral.c
+1>lineSegment_ex.c
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(430) : warning C4047: 'return' : 'image_char' differs in levels of indirection from 'MRESULT'
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(844) : warning C4047: '=' : 'coorlist **' differs in levels of indirection from 'coorlist *'
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(846) : warning C4047: '=' : 'coorlist **' differs in levels of indirection from 'coorlist *'
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(2142) : warning C4047: '=' : 'MRESULT' differs in levels of indirection from 'image_char'
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(2055) : warning C4101: 'imageDataTmp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(2054) : warning C4101: 'return_value' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(2067) : warning C4101: 'j' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\image\linesegment_ex.c(2055) : warning C4101: 'imageData' : unreferenced local variable
+1>liwatermark.c
+1>Generating Code...
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(298) : warning C4716: 'GetPixelWidth' : must return a value
+1>c:\users\ibm\desktop\oilammeterread\src\filter\haarresponse.c(328) : warning C4716: 'Integrogram' : must return a value
+1>c:\users\ibm\desktop\oilammeterread\src\hy_meterreg.c(1167) : warning C4716: 'HYMR_WRITEIMAGE' : must return a value
+1>Compiling...
+1>resample.c
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(70) : warning C4013: 'JASSERT' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(516) : warning C4133: '=' : incompatible types - from 'MByte *' to 'long *'
+1>rotateBlock.c
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(49) : warning C4013: 'memset' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(73) : warning C4244: '=' : conversion from 'MDouble' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(92) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(93) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(101) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(102) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(103) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(143) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(144) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(161) : warning C4244: '=' : conversion from 'MFloat' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(180) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(181) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(189) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(190) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(191) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(237) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(238) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(252) : warning C4244: '=' : conversion from 'double' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(253) : warning C4244: '=' : conversion from 'double' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(263) : warning C4244: '=' : conversion from 'double' to 'MUInt8', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(268) : warning C4102: 'EXT' : unreferenced label
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(280) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(281) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(289) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(290) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(291) : warning C4244: 'initializing' : conversion from 'double' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(331) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(332) : warning C4244: '=' : conversion from 'MDouble' to 'MFloat', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(360) : warning C4098: 'MeterRRotateImage_EX2' : 'void' function returning a value
+1>c:\users\ibm\desktop\oilammeterread\src\image\rotateblock.c(284) : warning C4101: 'pixel' : unreferenced local variable
+1>hough.c
+1>c:\users\ibm\desktop\oilammeterread\src\imagepro\hough.c(37) : warning C4013: 'JASSERT' undefined; assuming extern returning int
+1>c:\users\ibm\desktop\oilammeterread\src\imagepro\hough.c(129) : warning C4101: 'pTmpBinData' : unreferenced local variable
+1>sort.c
+1>c:\users\ibm\desktop\oilammeterread\src\imagepro\sort.c(72) : warning C4013: 'JASSERT' undefined; assuming extern returning int
+1>lidebug.c
+1>limem.c
+1>c:\users\ibm\desktop\oilammeterread\src\licommon\limem.c(225) : warning C4311: 'type cast' : pointer truncation from 'MVoid *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\licommon\limem.c(225) : warning C4312: 'type cast' : conversion from 'MDWord' to 'LPAM_MEMPOOLCELLHEADER' of greater size
+1>c:\users\ibm\desktop\oilammeterread\src\licommon\limem.c(226) : warning C4311: 'type cast' : pointer truncation from 'AM_MEMPOOLCELLHEADER *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\licommon\limem.c(226) : warning C4311: 'type cast' : pointer truncation from 'MVoid *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\licommon\limem.c(277) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>lisort.c
+1>litimer.c
+1>liimgfmttrans.c
+1>lirgb_yuv.c
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(320) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(321) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(366) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(367) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(413) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(414) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(460) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>c:\users\ibm\desktop\oilammeterread\src\imgfmt_trans\lirgb_yuv.c(461) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>facemask.c
+1>c:\users\ibm\desktop\oilammeterread\src\mask\facemask.c(1010) : warning C4101: 'lTmp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\mask\facemask.c(1219) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MLong'
+1>c:\users\ibm\desktop\oilammeterread\src\mask\facemask.c(1223) : warning C4311: 'type cast' : pointer truncation from 'MByte *' to 'MDWord'
+1>limask.c
+1>MatchRigidBody.c
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(137) : warning C4101: 'i' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(157) : warning C4101: 'lY' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(157) : warning C4101: 'lX' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(137) : warning C4101: 'j' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(219) : warning C4996: 'fopen' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(234) : see declaration of 'fopen'
+1>        Message: 'This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(234) : warning C4996: 'fopen' was declared deprecated
+1>        k:\program files\microsoft visual studio 8\vc\include\stdio.h(234) : see declaration of 'fopen'
+1>        Message: 'This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_DEPRECATE. See online help for details.'
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(356) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(357) : warning C4244: '=' : conversion from 'MDouble' to 'MLong', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(401) : warning C4101: 'lImgTmp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(401) : warning C4101: 'lSrcTmp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(399) : warning C4101: 'lTemp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(529) : warning C4133: 'function' : incompatible types - from 'MUInt32 *__w64 ' to 'MUInt16 *'
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(536) : warning C4133: 'function' : incompatible types - from 'MUInt32 *__w64 ' to 'MUInt16 *'
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(559) : warning C4244: '=' : conversion from 'MLong' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(560) : warning C4244: '=' : conversion from 'MLong' to 'MInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(561) : warning C4244: '=' : conversion from 'MUInt32' to 'MUInt16', possible loss of data
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(447) : warning C4101: 'l_istep' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(475) : warning C4101: 'l_number' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(630) : warning C4090: 'initializing' : different 'const' qualifiers
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(810) : warning C4101: 'l_istep' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(840) : warning C4101: 'l_number' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(833) : warning C4101: 'cannyFile' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(836) : warning C4101: 'l_k' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(818) : warning C4101: 'l_xall' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(818) : warning C4101: 'l_yall' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(802) : warning C4101: 'l_y' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(819) : warning C4101: 'l_counter' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(802) : warning C4101: 'l_x' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(992) : warning C4102: 'EXT' : unreferenced label
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(954) : warning C4101: 'pTmpData' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(956) : warning C4101: 'lTmpExt' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(1005) : warning C4101: 'k' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(1130) : warning C4101: 'lImgTmp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(1130) : warning C4101: 'lSrcTmp' : unreferenced local variable
+1>c:\users\ibm\desktop\oilammeterread\src\match\matchrigidbody.c(1128) : warning C4101: 'lTemp' : unreferenced local variable
+1>Generating Code...
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(171) : warning C4700: uninitialized local variable 'naAccu' used
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(172) : warning C4700: uninitialized local variable 'naCarry' used
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(292) : warning C4700: uninitialized local variable 'naAccu' used
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(516) : warning C4700: uninitialized local variable 'buf0' used
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(616) : warning C4700: uninitialized local variable 'naAccu' used
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(617) : warning C4700: uninitialized local variable 'naCarry' used
+1>c:\users\ibm\desktop\oilammeterread\src\image\resample.c(733) : warning C4700: uninitialized local variable 'naAccu' used
+1>Build log was saved at "file://c:\Users\IBM\Desktop\OilAmmeterRead\makefile\HYMeterRecog_win32\Debug\BuildLog.htm"
+1>HYMeterRecog - 2 error(s), 317 warning(s)
+2>------ Rebuild All started: Project: testbed_win32, Configuration: Debug Win32 ------
+2>Deleting intermediate and output files for project 'testbed_win32', configuration 'Debug|Win32'
+2>Compiling...
+2>meterReg.cpp
+2>c:\users\ibm\desktop\oilammeterread\testbed\meterreg.cpp(212) : warning C4102: 'EXT' : unreferenced label
+2>c:\users\ibm\desktop\oilammeterread\testbed\meterreg.cpp(39) : warning C4101: 'imgR1' : unreferenced local variable
+2>c:\users\ibm\desktop\oilammeterread\testbed\meterreg.cpp(40) : warning C4101: 'imgTemp' : unreferenced local variable
+2>c:\users\ibm\desktop\oilammeterread\testbed\meterreg.cpp(39) : warning C4101: 'imgR2' : unreferenced local variable
+2>c:\users\ibm\desktop\oilammeterread\testbed\meterreg.cpp(175) : warning C4101: 'numberData' : unreferenced local variable
+2>c:\users\ibm\desktop\oilammeterread\testbed\meterreg.cpp(176) : warning C4101: 'path' : unreferenced local variable
+2>stdafx.cpp
+2>Generating Code...
+2>Compiling manifest to resources...
+2>Linking...
+2>LINK : fatal error LNK1104: cannot open file '../../lib/win32.obj'
+2>Build log was saved at "file://c:\Users\IBM\Desktop\OilAmmeterRead\testbed\testbed_win32\Debug\BuildLog.htm"
+2>testbed_win32 - 1 error(s), 6 warning(s)
+========== Rebuild All: 0 succeeded, 2 failed, 0 skipped ==========

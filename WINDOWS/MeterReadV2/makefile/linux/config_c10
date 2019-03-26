@@ -1,0 +1,5 @@
+
+OBJPATH		= output/objs/
+LIBDIR		= ../../libs/
+LIBS		= 
+

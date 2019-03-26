@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed.vcxproj", "{85CF9D72-8D93-4432-81E2-1508609A93D6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ImageQuality", "..\..\makefile\win32\ImageQuality.vcxproj", "{4E7B2BE1-84B5-43F1-8F58-869851CCD2BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85CF9D72-8D93-4432-81E2-1508609A93D6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{85CF9D72-8D93-4432-81E2-1508609A93D6}.Debug|Win32.Build.0 = Debug|Win32
+		{85CF9D72-8D93-4432-81E2-1508609A93D6}.Release|Win32.ActiveCfg = Release|Win32
+		{85CF9D72-8D93-4432-81E2-1508609A93D6}.Release|Win32.Build.0 = Release|Win32
+		{4E7B2BE1-84B5-43F1-8F58-869851CCD2BA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4E7B2BE1-84B5-43F1-8F58-869851CCD2BA}.Debug|Win32.Build.0 = Debug|Win32
+		{4E7B2BE1-84B5-43F1-8F58-869851CCD2BA}.Release|Win32.ActiveCfg = Release|Win32
+		{4E7B2BE1-84B5-43F1-8F58-869851CCD2BA}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

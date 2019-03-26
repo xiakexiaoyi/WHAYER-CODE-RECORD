@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{25E0CF76-2068-4C65-A94B-89BC01637AE7}</ProjectGuid>
+    <RootNamespace>testbed</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.25431.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>E:\projects\2.0\branches\sc_stable\AnalyseServer\AnalyseThirdPartySrc\MeterReadV2\inc;../../../;$(HyerLibrary)\opencv\2.4.6\build\include;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseSingle;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseCommon;E:\projects\2.0\code\AnalyseServer\2.0.0\PicCapture;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseThirdParty;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseThirdParty\opencv;E:\projects\2.0\code\ThirdParty\boost\1.43.0\boost;E:\projects\2.0\code\ThirdParty\threadpool\0.2.5\include;E:\projects\2.0\code\ThirdParty\loki\0.1.7\loki\include;E:\projects\2.0\code\FrameWork\Include;E:\projects\2.0\code\MsgDefine\CommonMsgDef\Include;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseServer;E:\projects\2.0\code\AnalyseServer\2.0.0\HttpServer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_SCL_SECURE_NO_WARNINGS;LOKI_CLASS_LEVEL_THREADING;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opencv_calib3d246.lib;opencv_contrib246.lib;opencv_core246.lib;opencv_features2d246.lib;opencv_flann246.lib;opencv_gpu246.lib;opencv_highgui246.lib;opencv_imgproc246.lib;opencv_legacy246.lib;opencv_ml246.lib;opencv_objdetect246.lib;opencv_ts246.lib;opencv_video246.lib;HYCommon.lib;CommonMsgDef.lib;AnalyseCommon.lib;MeterReadV2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)1.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(HyerLibrary)\opencv\2.4.6\build\x86\vc9\lib;E:\projects\2.0\code\AnalyseServer\AnalyseTmp\release\lib;E:\projects\2.0\code\ThirdParty\boost\1.43.0\boost\lib;E:\projects\2.0\code\ThirdParty\loki\0.1.7\loki\lib;E:\projects\2.0\branches\sc_stable\AnalyseServer\Release;E:\projects\2.0\code\Release;..\opencvinclude;..\..\..\..\..\AnalyseServer\2.0.0\AnalyseThirdParty\MeterReadV2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>E:\projects\2.0\branches\sc_stable\AnalyseServer\AnalyseThirdPartySrc\MeterReadV2\inc;../../../;$(HyerLibrary)\opencv\2.4.6\build\include;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseSingle;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseCommon;E:\projects\2.0\code\AnalyseServer\2.0.0\PicCapture;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseThirdParty;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseThirdParty\opencv;E:\projects\2.0\code\ThirdParty\boost\1.43.0\boost;E:\projects\2.0\code\ThirdParty\threadpool\0.2.5\include;E:\projects\2.0\code\ThirdParty\loki\0.1.7\loki\include;E:\projects\2.0\code\FrameWork\Include;E:\projects\2.0\code\MsgDefine\CommonMsgDef\Include;E:\projects\2.0\code\AnalyseServer\2.0.0\AnalyseServer;E:\projects\2.0\code\AnalyseServer\2.0.0\HttpServer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_SCL_SECURE_NO_WARNINGS;LOKI_CLASS_LEVEL_THREADING;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>opencv_calib3d246.lib;opencv_contrib246.lib;opencv_core246.lib;opencv_features2d246.lib;opencv_flann246.lib;opencv_gpu246.lib;opencv_highgui246.lib;opencv_imgproc246.lib;opencv_legacy246.lib;opencv_ml246.lib;opencv_objdetect246.lib;opencv_ts246.lib;opencv_video246.lib;HYCommon.lib;CommonMsgDef.lib;AnalyseCommon.lib;MeterReadV2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)1.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(HyerLibrary)\opencv\2.4.6\build\x86\vc9\lib;E:\projects\2.0\code\AnalyseServer\AnalyseTmp\release\lib;E:\projects\2.0\code\ThirdParty\boost\1.43.0\boost\lib;E:\projects\2.0\code\ThirdParty\loki\0.1.7\loki\lib;E:\projects\2.0\branches\sc_stable\AnalyseServer\Release;E:\projects\2.0\code\Release;..\opencvinclude;..\..\..\..\..\AnalyseServer\2.0.0\AnalyseThirdParty\MeterReadV2;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\testbed\testbed_video_unify_cmy_20170510.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

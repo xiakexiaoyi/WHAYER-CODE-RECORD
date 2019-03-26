@@ -1,0 +1,1 @@
+export LD_LIBRARY_PATH=/home/whayer/whayercode64/linkdemov2/libs/linux:$LD_LIBRARY_PATH 

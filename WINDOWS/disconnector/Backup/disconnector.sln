@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "disconnector", "disconnector\disconnector.vcproj", "{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed\testbed.vcproj", "{A4F026EE-3876-42B8-B0E0-89167E484E52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Debug|Win32.Build.0 = Debug|Win32
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Debug|x64.ActiveCfg = Debug|x64
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Debug|x64.Build.0 = Debug|x64
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Release|Win32.ActiveCfg = Release|Win32
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Release|Win32.Build.0 = Release|Win32
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Release|x64.ActiveCfg = Release|x64
+		{A9BE0D2C-2E6E-4A8D-9B72-819866B6C931}.Release|x64.Build.0 = Release|x64
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Debug|Win32.Build.0 = Debug|Win32
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Debug|x64.ActiveCfg = Debug|x64
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Debug|x64.Build.0 = Debug|x64
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Release|Win32.ActiveCfg = Release|Win32
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Release|Win32.Build.0 = Release|Win32
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Release|x64.ActiveCfg = Release|x64
+		{A4F026EE-3876-42B8-B0E0-89167E484E52}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
