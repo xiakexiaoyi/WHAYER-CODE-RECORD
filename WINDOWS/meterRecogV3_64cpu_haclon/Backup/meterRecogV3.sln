@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "meterRecogV3", "meterRecogV3\meterRecogV3.vcproj", "{904F460A-5A5D-44D4-8CA9-2EF4BE25D670}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testbed", "testbed\testbed.vcproj", "{12259E9B-971F-46A2-8858-464781BF3116}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{904F460A-5A5D-44D4-8CA9-2EF4BE25D670}.Debug|Win32.ActiveCfg = Debug|Win32
+		{904F460A-5A5D-44D4-8CA9-2EF4BE25D670}.Debug|Win32.Build.0 = Debug|Win32
+		{904F460A-5A5D-44D4-8CA9-2EF4BE25D670}.Release|Win32.ActiveCfg = Release|Win32
+		{904F460A-5A5D-44D4-8CA9-2EF4BE25D670}.Release|Win32.Build.0 = Release|Win32
+		{12259E9B-971F-46A2-8858-464781BF3116}.Debug|Win32.ActiveCfg = Debug|Win32
+		{12259E9B-971F-46A2-8858-464781BF3116}.Debug|Win32.Build.0 = Debug|Win32
+		{12259E9B-971F-46A2-8858-464781BF3116}.Release|Win32.ActiveCfg = Release|Win32
+		{12259E9B-971F-46A2-8858-464781BF3116}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
