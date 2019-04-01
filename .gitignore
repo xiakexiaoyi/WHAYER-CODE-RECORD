@@ -17,3 +17,4 @@ yolov3_lib_2019/
 *.bmp
 *.png
 *.o
+libcudnn.so.7

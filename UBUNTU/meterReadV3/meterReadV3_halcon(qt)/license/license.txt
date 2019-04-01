@@ -1,0 +1,2 @@
+Place your license_*.dat file here. You can get an evaluation license
+from your local distributor (see http://www.mvtec.com/sales).
