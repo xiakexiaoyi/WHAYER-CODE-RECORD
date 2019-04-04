@@ -1666,6 +1666,8 @@ MRESULT ridgePoint(MHandle hMemMgr, MByte *pSrcData, MLong lSrcLine, MLong lWidt
 						
 						if (*(pTmpLabel2+m*lLabelLine+n)==MaxLabel)
 							break;
+						if (*(pTmpSrc2 + m *lSrcLine + n) == 0)//ls fix  //响应值为0时，flag值不应该设为110 //对种子点生成不影响
+							continue;
 						*(pTmpLabel2 +m *lLabelLine+n) =AccessedLabel;
 						if (MaxByte<*(pTmpSrc2+m*lSrcLine+n))
 						{

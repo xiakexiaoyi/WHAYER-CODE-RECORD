@@ -2,7 +2,7 @@ include config_c10
 
 CFLAGS = -lm
 OPTS=-Ofast
-CFLAGS+=-Wall -Wfatal-errors -fPIC
+CFLAGS+=-Wall -Wfatal-errors -fPIC -fvisibility=hidden
 
 CFLAGS+=$(OPTS)
 MACROS	 = $(PLAT_MACROS) $(OTHER_MACROS)

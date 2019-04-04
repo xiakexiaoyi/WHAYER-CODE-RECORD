@@ -9,6 +9,11 @@
 #else
 #define	METERREG_API
 #endif
+#if defined(_MSC_VER)
+#define YOLOV2DLL_API 
+#else
+#define YOLOV2DLL_API __attribute ((visibility("default")))
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -219,7 +224,7 @@ typedef struct
 输出参数说明：pMem：指针
 返回值说明：无
 ===========================================================*/
-METERREG_API MHandle HYAMR_MemMgrCreate(MVoid * pMem, MLong lMemSize);
+YOLOV2DLL_API METERREG_API MHandle HYAMR_MemMgrCreate(MVoid * pMem, MLong lMemSize);
 
 /*===========================================================
 函数名	：HYAMR_MemMgrDestroy
@@ -228,7 +233,7 @@ METERREG_API MHandle HYAMR_MemMgrCreate(MVoid * pMem, MLong lMemSize);
 				hMemMgr：HYMRB_MemMgrCreate中获得的指针				            
 返回值说明：无
 ===========================================================*/
-METERREG_API MVoid HYAMR_MemMgrDestroy(MHandle hMemMgr);
+YOLOV2DLL_API METERREG_API MVoid HYAMR_MemMgrDestroy(MHandle hMemMgr);
 
 /*===========================================================
 函数名	：HYAMR_Init
@@ -240,7 +245,7 @@ METERREG_API MVoid HYAMR_MemMgrDestroy(MHandle hMemMgr);
                pMRBreg：操作句柄
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API MRESULT HYAMR_Init(MHandle hMemMgr,MHandle *pMRBreg);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_Init(MHandle hMemMgr,MHandle *pMRBreg);
 
 /*===========================================================
 函数名	：HYAMR_Uninit
@@ -251,7 +256,7 @@ METERREG_API MRESULT HYAMR_Init(MHandle hMemMgr,MHandle *pMRBreg);
 输出参数说明：               
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API MRESULT HYAMR_Uninit(MHandle hHYMRDHandle);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_Uninit(MHandle hHYMRDHandle);
 
 /*===========================================================
 函数名	：HYAMR_TrainTemplateFromMask
@@ -265,7 +270,7 @@ METERREG_API MRESULT HYAMR_Uninit(MHandle hHYMRDHandle);
 			   lParma:训练的方法。0不对图像进行旋转处理，1对图像进行旋转处理
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API MRESULT HYAMR_TrainTemplateFromMask(MHandle hHYMRDHandle,HYLPAMR_IMAGES pImage,HYLPAMR_IMAGES pMask,MChar *pClassName,MLong lParma);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_TrainTemplateFromMask(MHandle hHYMRDHandle,HYLPAMR_IMAGES pImage,HYLPAMR_IMAGES pMask,MChar *pClassName,MLong lParma);
 
 /*===========================================================
 函数名	：HYAMR_ReadNumber
@@ -282,7 +287,7 @@ METERREG_API MRESULT HYAMR_TrainTemplateFromMask(MHandle hHYMRDHandle,HYLPAMR_IM
 			   result:读数结果
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API MRESULT HYAMR_GetMeterResult(MHandle hHYMRDHandle, HYAMR_READ_PARA readPara, MDouble *pResult);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetMeterResult(MHandle hHYMRDHandle, HYAMR_READ_PARA readPara, MDouble *pResult);
 
 /*===========================================================
 函数名	：HYAMR_GetPoint
@@ -297,17 +302,17 @@ METERREG_API MRESULT HYAMR_GetMeterResult(MHandle hHYMRDHandle, HYAMR_READ_PARA 
 			   pNumInPoint：大刻度点个数
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API MRESULT HYAMR_GetObjRect(MHandle hHYMRDHandle,HYLPAMR_IMAGES pImage,MChar *pClassName, MDouble threshold);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetObjRect(MHandle hHYMRDHandle,HYLPAMR_IMAGES pImage,MChar *pClassName, MDouble threshold);
 
-METERREG_API MRESULT HYAMR_GetPointerLine(MHandle hHYMRDHandle, HYLPAMR_IMAGES pImage, MChar *pClassName, MDouble threshold, 
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetPointerLine(MHandle hHYMRDHandle, HYLPAMR_IMAGES pImage, MChar *pClassName, MDouble threshold, 
 											HYAMR_READ_PARA *readPara, MLong lMeterType);
 
-METERREG_API MRESULT HYAMR_GetLineInfo(MHandle hHYMRDHandle, HYLPAMR_IMAGES pImage, MChar *pClassName, MDouble threshold,
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetLineInfo(MHandle hHYMRDHandle, HYLPAMR_IMAGES pImage, MChar *pClassName, MDouble threshold,
 										HYAMR_READ_PARA *pLinePara, MLong lMeterType);
-METERREG_API MRESULT HYAMR_GetLineInfo_mem(MHandle hHYMRDHandle, HYLPAMR_IMAGES pImage, MChar *pClassName, MDouble threshold,
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetLineInfo_mem(MHandle hHYMRDHandle, HYLPAMR_IMAGES pImage, MChar *pClassName, MDouble threshold,
 									  HYAMR_READ_PARA *pLinePara, MLong lMeterType, unsigned char *pCurTargetMem, unsigned char *pTrainTargetMem);
 //METERREG_API MRESULT HYAMR_GetSwitchLine(MHandle hHYMRDHandle, HYLPAMR_IMAGES pImage, MChar *pClassName, MDouble threshold, HYAMR_READ_PARA *pLinePara);
-METERREG_API MRESULT HYAMR_GetLineParam(MHandle hHYMRDHandle, HYLPAMR_IMAGES pSrcImage, HYAMR_INTERACTIVE_PARA *pPara,
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetLineParam(MHandle hHYMRDHandle, HYLPAMR_IMAGES pSrcImage, HYAMR_INTERACTIVE_PARA *pPara,
 										MChar *pClass, MDouble dThreshold, unsigned char *pCurTargetMem, unsigned char *pTrainTargetMem, HYAMR_READ_PARA *pLinePara);
 /*===========================================================
 函数名	：HYAMR_SetParam
@@ -319,7 +324,7 @@ METERREG_API MRESULT HYAMR_GetLineParam(MHandle hHYMRDHandle, HYLPAMR_IMAGES pSr
              		   如果pPatternIn!=NULL，输入的是刻度的位置列表
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API  MRESULT HYAMR_SetParam(MHandle hHYMRDHandle, HYLPAMR_IMAGES pMaskImage, HYAMR_INTERACTIVE_PARA *pInPara);
+YOLOV2DLL_API METERREG_API  MRESULT HYAMR_SetParam(MHandle hHYMRDHandle, HYLPAMR_IMAGES pMaskImage, HYAMR_INTERACTIVE_PARA *pInPara);
 //METERREG_API  MRESULT HYAMR_SetParam(MHandle hHYMRDHandle,	HYAMR_PATTERN_IN *pPatternIn, MLong *lx, MLong *ly, MLong *lr);		
 
 /*===========================================================
@@ -332,8 +337,8 @@ METERREG_API  MRESULT HYAMR_SetParam(MHandle hHYMRDHandle, HYLPAMR_IMAGES pMaskI
                无
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API MLong HYAMR_SaveTDescriptorsGroup(MHandle hHYMRDHandle,const char *path);
-METERREG_API MLong HYAMR_SaveDesMem(MHandle hHYMRDHandle, unsigned char *pDesMem, MLong lSize, MLong *lDstSize);
+YOLOV2DLL_API METERREG_API MLong HYAMR_SaveTDescriptorsGroup(MHandle hHYMRDHandle,const char *path);
+YOLOV2DLL_API METERREG_API MLong HYAMR_SaveDesMem(MHandle hHYMRDHandle, unsigned char *pDesMem, MLong lSize, MLong *lDstSize);
 
 /*===========================================================
 函数名	：HYAMR_GetTemplateFromText
@@ -346,27 +351,27 @@ METERREG_API MLong HYAMR_SaveDesMem(MHandle hHYMRDHandle, unsigned char *pDesMem
 输出参数说明：ptDescriptorsGroup：描述符块               
 返回值说明：错误代码
 ===========================================================*/
-METERREG_API MRESULT HYAMR_GetTemplateFromText(MHandle hHYMRDHandle,char* path);
-METERREG_API MLong HYAMR_GetDesMem(MHandle hHYMRDHandle, unsigned char *pDesMem);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetTemplateFromText(MHandle hHYMRDHandle,char* path);
+YOLOV2DLL_API METERREG_API MLong HYAMR_GetDesMem(MHandle hHYMRDHandle, unsigned char *pDesMem);
 
 /******************************target info***************************************/
-METERREG_API MRESULT HYAMR_SaveTargetInfo(MHandle hHYMRDHandle,const char *path, const char *trainPath, MBool isTrain);
-METERREG_API MRESULT HYAMR_GetTargetInfo(MHandle hHYMRDHandle,char* path, char *trainPath, MLong lImgWidth, MLong lImgHeight);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_SaveTargetInfo(MHandle hHYMRDHandle,const char *path, const char *trainPath, MBool isTrain);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetTargetInfo(MHandle hHYMRDHandle,char* path, char *trainPath, MLong lImgWidth, MLong lImgHeight);
 
-METERREG_API MRESULT HYAMR_SaveTargetInfoToMem(MHandle hHYMRDHandle, unsigned char *pCurTargetMem, unsigned char *pTrainTargetMem, MBool isTrain);
-METERREG_API MRESULT HYAMR_GetTaregetInfoFromMem(MHandle hHYMRDHandle, unsigned char *pCurTargetMem, unsigned char *pTrainTaregtMem, MLong lImgWidth, MLong lImgHeight);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_SaveTargetInfoToMem(MHandle hHYMRDHandle, unsigned char *pCurTargetMem, unsigned char *pTrainTargetMem, MBool isTrain);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetTaregetInfoFromMem(MHandle hHYMRDHandle, unsigned char *pCurTargetMem, unsigned char *pTrainTaregtMem, MLong lImgWidth, MLong lImgHeight);
 /********************************************************************************/
 
-METERREG_API MRESULT HYAMR_GetDescriptors(MHandle hHYMRDHandle,HYAMR_TDescriptorsGroup **pptDescriptorGroup);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_GetDescriptors(MHandle hHYMRDHandle,HYAMR_TDescriptorsGroup **pptDescriptorGroup);
 
-METERREG_API MRESULT HYAMR_SetDescriptors(MHandle hHYMRDHandle,HYAMR_TDescriptorsGroup *ptDescriptorGroup);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_SetDescriptors(MHandle hHYMRDHandle,HYAMR_TDescriptorsGroup *ptDescriptorGroup);
 
 // 读数结果取中值 防止连续读数出现跳变
-METERREG_API MDouble HYAMR_FindMidian (MDouble *pBuffer, MLong lBufferLen);
+YOLOV2DLL_API METERREG_API MDouble HYAMR_FindMidian (MDouble *pBuffer, MLong lBufferLen);
 
-METERREG_API MRESULT HYAMR_CalcHaarWidth(MHandle hHYMRDHandle, HYLPAMR_IMAGES pSrcImg, HY_LINE_TYPE *pLineColor, MPOINT *pPtList, MLong lPtNum, MLong *lHaarWidth);
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_CalcHaarWidth(MHandle hHYMRDHandle, HYLPAMR_IMAGES pSrcImg, HY_LINE_TYPE *pLineColor, MPOINT *pPtList, MLong lPtNum, MLong *lHaarWidth);
 
-METERREG_API MRESULT HYAMR_SaveTargetInfoToMemTmp (MHandle hHYMRDHandle, unsigned char *pCurTargetMem, unsigned char *pTrainTargetMem, MBool isTrain,int *rect );
+YOLOV2DLL_API METERREG_API MRESULT HYAMR_SaveTargetInfoToMemTmp (MHandle hHYMRDHandle, unsigned char *pCurTargetMem, unsigned char *pTrainTargetMem, MBool isTrain,int *rect );
 
 /************************************************************************/
 /* The function used to get version information of face tracking library.*/ 

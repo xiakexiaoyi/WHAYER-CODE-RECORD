@@ -7,6 +7,7 @@
 #else
 //#ifndef YOLOV2DLL_API
 #define YOLOV2DLL_API __attribute ((visibility("default")))
+#endif
 #ifdef __cplusplus
 extern "C" {
 #endif
