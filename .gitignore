@@ -1,7 +1,7 @@
 python/
 yolov3_lib/build/
-
-
+TRAIN(UBUNTU)/
+UBUNTU/算法库/back/
 yolov3_lib_2019/
 
 *.cfg
