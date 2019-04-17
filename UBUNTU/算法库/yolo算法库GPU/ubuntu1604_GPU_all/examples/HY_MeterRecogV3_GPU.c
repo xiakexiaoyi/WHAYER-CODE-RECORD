@@ -85,6 +85,7 @@ int resize_image_GPU(HYLPMRV3_IMAGES im, HYLPMRV3_IMAGES resized)
 int polartrans_ls(HYLPMRV3_IMAGES src, HYLPMRV3_IMAGES dst, MV3Para Meterdescrip, MV3PT *SF)
 {
 	int res = 0;
+	int i=0,j=0,k=0;
 	HYMRV3_IMAGES IndexImage = { 0 };
 	unsigned char* data = (unsigned char *)src->pixelArray.chunky.pPixel;
 	int wrect = PI * 2 * Meterdescrip.RadiusOut;
@@ -104,9 +105,9 @@ int polartrans_ls(HYLPMRV3_IMAGES src, HYLPMRV3_IMAGES dst, MV3Para Meterdescrip
 			return res;
 		}
 		unsigned char* indexdata = (unsigned char *)IndexImage.pixelArray.chunky.pPixel;
-		for (int j = 0; j < hrect; j++)
+		for ( j = 0; j < hrect; j++)
 		{
-			for (int i = 0; i < wrectactual; i++)
+			for ( i = 0; i < wrectactual; i++)
 				//for (int i = 0; i < wrect; i++)
 			{
 				double theta = PI*2.0 / wrect*(i + 1);//逆时针
@@ -117,7 +118,7 @@ int polartrans_ls(HYLPMRV3_IMAGES src, HYLPMRV3_IMAGES dst, MV3Para Meterdescrip
 																		   //极坐标转换 x = rcos（θ），y = rsin（θ），图片的笛卡尔坐标系y轴是逆序的
 				int position_x = Meterdescrip.Col + rho*cos(theta) + 0.5;
 				int position_y = Meterdescrip.Row - rho * (float)sin(theta) + 0.5;
-				for (int k = 0; k < Meterdescrip.lPtNum; k++)
+				for ( k = 0; k < Meterdescrip.lPtNum; k++)
 				{
 					if (Meterdescrip.ptPosList[k].x == position_x &&Meterdescrip.ptPosList[k].y == position_y)
 					{
@@ -238,6 +239,7 @@ EXT:
 int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meterdescrip,HYMR_POINTERRESULT *MeterResult)
 {
 	int res=0;
+	int i=0,j=0;
         MV3PT pPtPos = { 0 };	  
  	unsigned char *IndexData = NULL;
     	unsigned char *Index416Data = NULL;
@@ -291,9 +293,9 @@ int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meter
 	}
 	IndexData = (unsigned char*)IndexImage.pixelArray.chunky.pPixel;
 	Index416Data = (unsigned char*)IndexImage416.pixelArray.chunky.pPixel;
-	for (int j = 0; j<IndexImage416.lHeight; j++)
+	for ( j = 0; j<IndexImage416.lHeight; j++)
 	{
-		for (int i = 0; i<3 * IndexImage416.lWidth; i++)
+		for ( i = 0; i<3 * IndexImage416.lWidth; i++)
 		{
 			if (j<IndexImage.lHeight)
 				Index416Data[i + j*IndexImage416.pixelArray.chunky.lLineBytes] = IndexData[i + j*IndexImage.pixelArray.chunky.lLineBytes];
@@ -309,7 +311,7 @@ int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meter
 		res=-1;
 		goto EXT;
 	}
-	for (int i = 0; i<Indexboxnum; i++){
+	for ( i = 0; i<Indexboxnum; i++){
 		Indexboxout[i] = (float *)calloc(6, sizeof(float));
 		if(Indexboxout[i]==NULL)
 		{
@@ -340,7 +342,7 @@ int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meter
 	
 	//printf("sf6 %f seconds\n", sec(clock() - time));
 	
-	for (int i = 0; i<Indexnum; i++)
+	for ( i = 0; i<Indexnum; i++)
 	{
 		if (Indexboxout[i][5] == 0)
 			fingernum++;
@@ -351,7 +353,7 @@ int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meter
 		goto EXT; 
 	}
 	
-	for (int i = 0; i<Indexnum; i++){
+	for ( i = 0; i<Indexnum; i++){
 		if (Indexboxout[i][5] == 0)
 		{
 			if (Indexboxout[i][4] > MaxProb){
@@ -366,7 +368,7 @@ int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meter
 	//printf("%f,sf6finger.x=%d\n",MaxProb,sf6finger.x);
 	
 	Maxindex = 0;
-	for (int i = 0; i<pPtPos.lPtNum; i++)//寻找离指针最近的刻度
+	for ( i = 0; i<pPtPos.lPtNum; i++)//寻找离指针最近的刻度
 	{
 		//printf("pPtPos.ptPosList[%d].x=%d\n", i,pPtPos.ptPosList[i].x);
 		sf6Distance[i] = sf6finger.x - pPtPos.ptPosList[i].x;
@@ -383,7 +385,7 @@ int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meter
 	}
 	else//指针不在刻度上
 	{
-		for (int i = 0; i<pPtPos.lPtNum; i++)
+		for ( i = 0; i<pPtPos.lPtNum; i++)
 		{
 			if (sf6Distance[i] > 0)
 				tmpgreater++;
@@ -423,7 +425,7 @@ int MeterReadRecogV3_GPU(const void *handle, HYLPMRV3_IMAGES src,  MV3Para Meter
 EXT:
 	if(Indexboxout)
 	{
-		for (int i = 0; i<Indexboxnum; i++){
+		for ( i = 0; i<Indexboxnum; i++){
 			if(Indexboxout[i])
 			{
 				free(Indexboxout[i]);
