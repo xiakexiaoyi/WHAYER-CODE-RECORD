@@ -158,7 +158,7 @@ int HYOLR_OilRecog(void *hMRHandle,OLR_IMAGES *pImg,HYOLR_RESULT_LIST *pResultLi
 	if(bbox_out.num == 0)
 	{
 		printf("Î´ÕÒµ½Ä¿±ê\n");
-		res = -1;
+		res = -99;
 		goto EXT;
 	}
 	

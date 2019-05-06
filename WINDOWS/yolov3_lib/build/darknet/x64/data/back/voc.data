@@ -1,0 +1,7 @@
+classes= 20
+train  = x64/data/voc/train.txt
+valid  = x64/data/voc/2007_test.txt
+#difficult = x64/data/difficult_2007_test.txt
+names = x64/data/voc.names
+backup = x64/backup/
+

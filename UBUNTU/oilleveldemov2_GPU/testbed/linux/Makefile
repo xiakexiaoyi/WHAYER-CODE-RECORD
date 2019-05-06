@@ -9,8 +9,7 @@ OBJPATH		= ../../int/
 LFLAGS = -lm
 TARGET = testBed
 
-libpath=-L ../../libs/linux/ -ldarknetGPU
-libpath+= ../../libs/linux/oillevelloc.a   \
+libpath=-L ../../libs/linux/ -ldarknetGPU \
 	`pkg-config --libs opencv`
 
 

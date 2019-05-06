@@ -158,7 +158,7 @@ int HYDSR_StateRecog_GPU(void *hMRHandle,DSR_IMAGES *pImg,HYDSR_RESULT_LIST *pRe
 		goto EXT;
 	}
 	COM_free_image_GPU(out);
-
+	printf("bbox_out.num=%d\n",bbox_out.num);
 	if(bbox_out.num == 0)
 	{
 		//printf("Î´ÕÒµ½Ä¿±ê\n");

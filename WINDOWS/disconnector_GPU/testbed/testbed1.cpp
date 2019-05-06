@@ -1,7 +1,7 @@
 #include "disconnector_GPU.h"
 #include <opencv2/opencv.hpp>
 #include<io.h>
-#include "putText.h"
+
 
 
 #ifdef _WIN64
@@ -30,8 +30,8 @@ int main()
 	/******TINY-YOLOÄ£ÐÍ*******/
 START:
 
-	char *cfgfile = "../model/old/1123/tiny-yolo-voc.cfg";
-	char *weightfile = "../model/old/1123/tiny-yolo-voc_70000.weights";
+	char *cfgfile = "../model/tiny-yolo-voc.cfg";
+	char *weightfile = "../model/tiny-yolo-voc_final.weights";
 	/*************/
 	void *hTLHandle = NULL;
 	DSR_IMAGES imgs = {0};

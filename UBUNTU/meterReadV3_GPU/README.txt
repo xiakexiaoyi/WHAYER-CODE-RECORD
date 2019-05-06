@@ -1,0 +1,3 @@
+使用版本为meterReadV3_withoutmatch_without_halcon_gpu_demo_qt(无halcon，无刚体匹配)
+此为细指针demo，使用qt。
+工程路径testbed1\testbed1.pro

@@ -11,12 +11,12 @@ int main()
 	HYSR_RESULT  result ={0};
 	void *hTLHandle=NULL;
 	float thresh=0.1;
-	char *cfgfile="../model/tiny-yolo-voc.cfg";
-	char *weightfile="../model/tiny-yolo-voc_final.weights";
+	char *cfgfile="../model/Âπ≥Èù¢/tiny-yolo-voc.cfg";
+	char *weightfile="../model/Âπ≥Èù¢/tiny-yolo-voc_final.weights";
 	//char *cfgfile="../model/tiny-yolo-voc_IO.cfg";
 	//char *weightfile="../model/tiny-yolo-voc_final_IO.weights";
 	
-	//char *filename="../5011ø™πÿBœ‡.jpg";
+	//char *filename="../5011ÔøΩÔøΩÔøΩÔøΩBÔøΩÔøΩ.jpg";
 	
 
 	char *filename="../1.jpg";

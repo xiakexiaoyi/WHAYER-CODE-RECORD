@@ -26,7 +26,7 @@ int main()
 	strcat(filename,imgname); 
 	strcat(resultname,imgname); 
     resultlist.lResultNum=20;
-	resultlist.DRArea = (MDRECT*)malloc(resultlist.lResultNum*sizeof(MDRECT));
+	resultlist.DRArea = (DRRECT*)malloc(resultlist.lResultNum*sizeof(DRRECT));
 	resultlist.pResult = (HYDR_RESULT*)malloc(resultlist.lResultNum*sizeof(HYDR_RESULT)) ;
 	DigitalTrain(&resultlist);//ÑµÁ·
 	
@@ -214,7 +214,7 @@ int DigitalRecog(HYDR_RESULT_LIST resultlist)
 	MVoid *pMem=NULL;
 	HYL_IMAGES src = {0};
 	char *cfgfile="../../model/tiny-yolo-voc.cfg";
-	char *weightfile="../../model/tiny-yolo-voc_final.weights";
+	char *weightfile="../../model/tiny-yolo-voc.weights";
 	//char *filename="../001.jpg";
     MPOINT *centre;
 	HYDR_RESULT_LIST Tmpresultlist = {0};
@@ -273,7 +273,7 @@ int DigitalRecog(HYDR_RESULT_LIST resultlist)
 
 	
 	int j=0;
-    MDRECT rtArea;
+    DRRECT rtArea;
 	for(int i=1;i<resultlist.lAreaNum;i++)
 	{
 		/*if(SIGAR_OK != sigar_proc_mem_get(p_sigar, pid, &procmem)){

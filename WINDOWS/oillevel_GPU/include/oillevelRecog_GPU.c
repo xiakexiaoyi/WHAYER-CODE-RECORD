@@ -2,13 +2,7 @@
 #include "detector_GPU.h"
 #include <stdio.h>
 #include <stdlib.h>
-//#ifdef _DEBUG
-//#pragma comment(lib, "../Debug/yolo_cpp_dll_no_gpu.lib")
-//
-//#else
-//#pragma comment(lib, "../Release/yolo_cpp_dll_no_gpu.lib")
-//
-//#endif
+
 
 typedef struct{
     int num;
@@ -164,7 +158,7 @@ int HYOLR_OilRecog_GPU(void *hMRHandle,OLR_IMAGES *pImg,HYOLR_RESULT_LIST *pResu
 	if(bbox_out.num == 0)
 	{
 		printf("Î´ÕÒµ½Ä¿±ê\n");
-		res = -1;
+		res = -99;
 		goto EXT;
 	}
 	

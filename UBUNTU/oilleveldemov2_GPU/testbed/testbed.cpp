@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "oillevelRecog_GPU.h"
-#include "HYL_OilLevel.h"
 #include <opencv2/opencv.hpp>
 
 #ifdef _DEBUG
@@ -20,14 +19,16 @@
 
 int main()
 {
-	char *filename="../../photo/oil_122.jpg";
-	char *cfgfile="../../model/oillevel/yolo-voc.cfg";
-	char *weightfile="../../model/oillevel/yolo-voc_36000.weights";
+	int res=0;
+	char *filename="../../photo/151641-391688_1-0.jpg";
+	char *cfgfile="../../model/oillevel/tiny-yolo-voc.cfg";
+	char *weightfile="../../model/oillevel/tiny-yolo-voc_21000.weights";
 	char *cfgfile_squareness="../../model/sq/tiny-yolo-voc.cfg";
-	char *weightfile_squareness="../../model/sq/tiny-yolo-voc_25000.weights";
+	char *weightfile_squareness="../../model/sq/tiny-yolo-voc_12000.weights";
 	IplImage* pImg = 0;
 	OLR_IMAGES imgs = {0};
 	void *hTLHandle=NULL;
+	void *hOHandle = NULL;
 	float thresh=0.40;
 	HYOLR_RESULT_LIST  resultlist ={0};
 	int w=0,h=0;
@@ -40,7 +41,22 @@ int main()
 	h=pImg->height;
 	resultlist.pResult = (HYOLR_RESULT*)malloc(20*sizeof(HYOLR_RESULT));
 	HYOLR_Init_GPU(NULL,&hTLHandle);//��ʼ��
-	HYOLR_SetParam_GPU(hTLHandle,cfgfile,weightfile,thresh,gpu_index,w,h);//����yolo
+	HYOLR_SetParam_GPU(hTLHandle,cfgfile,weightfile,thresh,gpu_index,w,h);//载入yolo
+	//HYOLR_Init(NULL,&hOHandle);
+	if (0 != HYOLR_Init_GPU(NULL, &hOHandle))
+	{
+		printf("HYOLR_Init error.\n");
+		res = -1;
+		goto EXT;
+	}
+	//HYOLR_SetParam(hOHandle,cfgfile_squareness,weightfile_squareness,thresh,imgw,imgh);
+	if (0 != HYOLR_SetParam_GPU(hOHandle, cfgfile_squareness, weightfile_squareness, thresh, gpu_index, w, h))
+	{
+		printf("HYOLR_SetParam error.\n");
+		res = -1;
+		goto EXT;
+	}
+
 
 	imgs.lHeight = pImg->height;
 	imgs.lWidth = pImg->width;
@@ -95,31 +111,67 @@ int main()
 		cvSetImageROI(pImg,cvRect(startPt.x, startPt.y, endPt.x- startPt.x, endPt.y- startPt.y));
 		cvSaveImage("../cut.jpg", pImg);
 		cvResetImageROI(pImg);
-		//������λ�ֱ�����
-		if(resultlist.pResult[i].dVal==0)//oillevel
+		//油位合并在一起
+		if (resultlist.pResult[i].dVal == 0 || resultlist.pResult[i].dVal == 1)//改动
 		{
 			IplImage* src = cvLoadImage("../cut.jpg");
-			void *hOHandle=NULL;
-			int imgw=src->width;
-			int imgh=src->height;
-			OLR_IMAGES imgs_squareness = {0};
-			HYOLR_RESULT_LIST  resultlist_squareness ={0};
-			resultlist_squareness.pResult = (HYOLR_RESULT*)malloc(20*sizeof(HYOLR_RESULT));
-			HYOLR_Init_GPU(NULL,&hOHandle);
-			HYOLR_SetParam_GPU(hOHandle,cfgfile_squareness,weightfile_squareness,thresh,gpu_index,imgw,imgh);
+			double percent = 0;
+			int imgw = src->width;
+			int imgh = src->height;
+			OLR_IMAGES imgs_squareness = { 0 };
+			HYOLR_RESULT_LIST  resultlist_squareness = { 0 };
+			resultlist_squareness.pResult = (HYOLR_RESULT*)malloc(20 * sizeof(HYOLR_RESULT));
+			
 			imgs_squareness.lHeight = src->height;
 			imgs_squareness.lWidth = src->width;
 			imgs_squareness.pixelArray.chunky.lLineBytes = src->widthStep;
 			imgs_squareness.pixelArray.chunky.pPixel = src->imageData;
-			//HYOLR_OilRecog(hOHandle,&imgs_squareness,&resultlist_squareness);//Ѱ����λ
-			if(HYOLR_OilRecog_GPU(hOHandle,&imgs_squareness,&resultlist_squareness)<0)
+			
+			//改动
+			int flag=HYOLR_OilRecog_GPU(hOHandle, &imgs_squareness, &resultlist_squareness);
+			if(flag==-99)//判断返回值，为-99时为 未找到目标
 			{
-				printf("û����λ\n");
+				printf("没有油位\n");
+				percent=100;
+				printf("percent=%f\n", percent);
+				cvReleaseImage(&src);
+				if (resultlist_squareness.pResult)
+					free(resultlist_squareness.pResult);
+				continue;
 			}
-			for(int i=0;i < resultlist_squareness.lResultNum;i++)
+			if(flag !=0)
+			{
+				printf("HYOLR_OilRecog_GPU error!\n");
+				cvReleaseImage(&src);
+				if (resultlist_squareness.pResult)
+					free(resultlist_squareness.pResult);
+				if (resultlist.pResult)
+					free(resultlist.pResult);
+				cvReleaseImage(&pImg);
+				res = -1;
+				goto EXT;
+			}
+			//
+			/*HYOLR_RESULT_LIST  resultlist_squarenesstmp = { 0 };
+			resultlist_squarenesstmp.pResult = (HYOLR_RESULT*)malloc(20 * sizeof(HYOLR_RESULT));
+			resultlist_squarenesstmp.lResultNum = 0;
+			for (int j = 0; j < resultlist_squareness.lResultNum; j++)
+			{
+				if (resultlist_squarenesstmp.pResult[j].dVal == 3)
+					continue;
+				resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].dVal = resultlist_squareness.pResult[j].dVal;
+				resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].dConfidence = resultlist_squareness.pResult[j].dConfidence;
+				resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].flag = resultlist_squareness.pResult[j].flag;
+				resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].Target.bottom = resultlist_squareness.pResult[j].Target.bottom;
+				resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].Target.left = resultlist_squareness.pResult[j].Target.left;
+				resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].Target.right = resultlist_squareness.pResult[j].Target.right;
+				resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum++].Target.top = resultlist_squareness.pResult[j].Target.top;
+			}*/
+			
+			for (int i = 0; i < resultlist_squareness.lResultNum; i++)
 			{
 				CvPoint ptStart, ptStop, ptText;
-				char text[256]={0};
+				char text[256] = { 0 };
 				CvFont font;
 				ptStart.x = resultlist_squareness.pResult[i].Target.left;
 				ptStart.y = resultlist_squareness.pResult[i].Target.top;
@@ -128,9 +180,9 @@ int main()
 
 				ptText.x = resultlist_squareness.pResult[i].Target.left;
 				ptText.y = resultlist_squareness.pResult[i].Target.bottom;
-				if (ptText.y<src->height-10)
+				if (ptText.y < src->height - 10)
 					ptText.y += 10;
-				cvRectangle(src, ptStart, ptStop, cvScalar(0,0,255));
+				cvRectangle(src, ptStart, ptStop, cvScalar(0, 0, 255));
 				if (resultlist_squareness.pResult[i].dVal == 0)
 					sprintf(text, "%d:squareness", i + 1);
 				else if (resultlist_squareness.pResult[i].dVal == 1)
@@ -141,54 +193,53 @@ int main()
 				//cvPutText(src, text, ptText, &font,  cvScalar(0,255,0));
 			}
 
-			cvShowImage("Result Show", src);
+			cvShowImage("OIL Result Show", src);
 			cvSaveImage("../cutoil.jpg", src);
-			double percent = 0;
-			if (resultlist_squareness.pResult[i].dVal == 0)
+			
+			int flagoil = 0;
+			for (int j = 0; j < resultlist_squareness.lResultNum; j++)
+			{
+				if (resultlist_squareness.pResult[j].dVal == 0)
+				{
+					percent = 100.0 - 100.0*resultlist_squareness.pResult[j].Target.top / imgh;
+					flagoil = 1;
+				}
+				else if (resultlist_squareness.pResult[j].dVal == 1)
+				{
+					percent = 100.0 - 100.0*(resultlist_squareness.pResult[j].Target.top + resultlist_squareness.pResult[j].Target.bottom) / (imgh * 2);
+					flagoil = 1;
+				}
+					
+				else if (resultlist_squareness.pResult[j].dVal == 2)
+				{
+					percent = 100.0 - 100.0*(resultlist_squareness.pResult[j].Target.top + resultlist_squareness.pResult[j].Target.bottom) / (imgh * 2);
+					flagoil = 1;
+				}			
+			}
+			if (flagoil == 0)
+				percent = 100;
+
+			/*if (resultlist_squareness.pResult[i].dVal == 0)
 				percent = 100.0 - 100.0*resultlist_squareness.pResult[i].Target.top / imgh;
 			else if (resultlist_squareness.pResult[i].dVal == 1)
-				percent = 10.0 - 10.0*(resultlist_squareness.pResult[i].Target.top + resultlist_squareness.pResult[i].Target.bottom) / (imgh * 2);
+				percent = 100.0 - 100.0*(resultlist_squareness.pResult[i].Target.top + resultlist_squareness.pResult[i].Target.bottom) / (imgh * 2);
+			else if (resultlist_squareness.pResult[i].dVal == 2)
+				percent = 100.0 - 100.0*(resultlist_squareness.pResult[i].Target.top + resultlist_squareness.pResult[i].Target.bottom) / (imgh * 2);*/
+		
+			
 			printf("percent=%f\n", percent);
 			cvWaitKey(0);
 			cvReleaseImage(&src);
-			HYOLR_Uninit_GPU(hOHandle);
 			if (resultlist_squareness.pResult)
 				free(resultlist_squareness.pResult);
-
-
 		}
-		else if(resultlist.pResult[i].dVal==1)//whiteblock
-		{
-			IplImage* src = cvLoadImage("../cut.jpg",CV_LOAD_IMAGE_GRAYSCALE);
-			int oil[1] = { 0 };
-			OL_IMAGES imgs1 = { 0 };
-			imgs1.lHeight= src->height;
-			imgs1.lWidth = src->width;
-			imgs1.pixelArray.chunky.lLineBytes = src->widthStep;
-			imgs1.pixelArray.chunky.pPixel = src->imageData;
-			HY_whiteBlock(&imgs1,oil);//Ѱ�Ұ׿��к���
-			//printf("%d\n",oil[0]);
-			if(oil[0]==0)
-			{
-				printf("δ�ҵ���λ\n");
-			}
-			IplImage* dst=cvLoadImage("../cut.jpg");
-			cvCircle(dst,cvPoint(dst->width/2,oil[0]),1,CV_RGB(255,0,0),-1,8,0);
-			double percent=100.0-100.0*oil[0]/src->height;
-			printf("percent=%f\n",percent);
-			cvShowImage("OIL Result Show", dst);
-			cvSaveImage("../result.jpg", dst);
-			//HY_OilLevel(&imgs1,oil,max,min);
-			//printf("oil=%d\n",oil[0]);
-			cvWaitKey(0);
-			cvReleaseImage(&src);
-			cvReleaseImage(&dst);
-		}
+		
 	}
 
-
+EXT:
 	cvReleaseImage(&pImg);
 	HYOLR_Uninit_GPU(hTLHandle);
+	HYOLR_Uninit_GPU(hOHandle);
 	if (resultlist.pResult)
 		free(resultlist.pResult);
 }

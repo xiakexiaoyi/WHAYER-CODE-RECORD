@@ -1,0 +1,7 @@
+工程文件：WhayerCode_vs2008.sln
+
+双击打开后生成LightOff项目得到算法库。
+
+运行MatchRigidBody项目生成MatchRigidBody库
+
+运行testbed项目（此为demo，依赖LightOff库，MatchRigidBody库）。先画一个框确定刚体匹配区域。再将待测目标一个一个框出来。

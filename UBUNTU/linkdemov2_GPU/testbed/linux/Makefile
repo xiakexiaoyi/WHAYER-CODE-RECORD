@@ -9,8 +9,7 @@ OBJPATH		= ../../int/
 LFLAGS = -lm
 TARGET = testBed
 
-libpath=-L ../../libs/linux/ -ldarknetGPU
-libpath+= ../../libs/linux/MatchRigidBody.a   \
+libpath=-L ../../libs/linux/ -ldarknetGPU -lMatchRigidBody   \
 	`pkg-config --libs opencv`
 
 

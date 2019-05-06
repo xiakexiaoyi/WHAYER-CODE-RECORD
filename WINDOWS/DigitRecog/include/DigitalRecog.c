@@ -1,21 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "DigitalRecog.h"
-//#include "opencv/cv.h"
-//#include "opencv/cxcore.h"
+
 
 #include "detector.h"
 #include "math.h"
-/*#ifdef _DEBUG
-#pragma comment(lib, "../Debug/yolo.lib")
 
-#else
-#pragma comment(lib, "../Release/yolo.lib")*/    //64 or 32
-//#pragma comment(lib, "../Release/yolo_cpp_dll_no_gpu.lib")
-//#pragma comment(lib, "../Release/opencv_core244.lib")
-//#pragma comment(lib, "../Release/opencv_highgui244.lib")
-//#pragma comment(lib, "../Release/opencv_imgproc244.lib")
-//#endif
 
 
 #ifndef MIN
@@ -287,9 +277,7 @@ int HYDR_DigitRecog(void *hMRHandle,DR_IMAGES *pImg , HYDR_RESULT_LIST *pResultL
 		res=-1;
 		goto EXT;
 	}
-	/*B = (double*)calloc(bbox.num, sizeof(double));
-	G = (double*)calloc(bbox.num, sizeof(double));
-	R = (double*)calloc(bbox.num, sizeof(double));*/
+	
 	
 	if(bbox.num < 2){	
 		//printf("error:bbox.num=%d\n",bbox.num);
@@ -337,168 +325,11 @@ int HYDR_DigitRecog(void *hMRHandle,DR_IMAGES *pImg , HYDR_RESULT_LIST *pResultL
 			}
 		}
 		
-		/***********
-		for(y=rtArea1.top;y<rtArea1.bottom-1;y++)
-		{
-			for(x=rtArea1.left;x<rtArea1.right-1;x++)
-			{
-				B[i]+=data[y*step+x*channels+0];
-				G[i]+=data[y*step+x*channels+1];
-				R[i]+=data[y*step+x*channels+2];	
-				pixelnum+=1;
-			}
-		}
-		if(pixelnum > 0)
-		{
-			B[i]=B[i]/pixelnum;
-			G[i]=G[i]/pixelnum;
-			R[i]=R[i]/pixelnum;
-		}
 
-		if(s[i].DigitForm[5]==1)
-		{
-			B[i]=B[i]*1.2;
-			G[i]=G[i]*1.2;
-			R[i]=R[i]*1.2;
-		}
-/***********/
-		/*if(s[i].flag >= 0)
-		{
-			a=fabs(1-(1.0*normalHeight)/(s[i].DigitForm[3]-s[i].DigitForm[2]));
-			if(fabs(a)>0.3)
-			{
-				printf("a=%f,高度异常\n",a);
-				s[i].flag = -3;
-			}
-			else
-			{
-				s[i].flag = 0;
-				
-			}
-		}*/
 	}
-	//for(i = 0; i < bbox.num; ++i){
-	//	printf("s[%d].DigitForm[5]=%.2f %f\n",i,s[i].DigitForm[5],s[i].DigitForm[4]);
-	//	//if(s[i].DigitForm[5]==1)
-	//	{
-	//		printf("w=%f  h=%f\n",s[i].DigitForm[1]-s[i].DigitForm[0],s[i].DigitForm[3]-s[i].DigitForm[2]);
-	//	}
-	//}
-	//printf("排除异常颜色\n");
-	/***********
-	for(i = 0; i < bbox.num; ++i){ 
-		if(s[i].flag < 0)continue;
-		for(j=0;j<bbox.num;j++){
-			long tmp=0,dist=0;
-			int color_dist;
-			if(i>=j)continue;
-			if(s[j].flag < 0)continue;
-			tmp=R[i]-R[j];
-			dist=tmp*tmp;
-			tmp=G[i]-G[j];
-			dist+=tmp*tmp;
-			tmp=B[i]-B[j];
-			dist+=tmp*tmp;
-			tmp=(dist*128)/((R[j]+G[j]+B[j])/3+16);
-			//printf("i=%d,j=%d,dist=%d,tmp=%d\n",i,j,dist,tmp);
-			color_dist=1024*10*7/8;
-			//printf("color_dist=%d\n",color_dist);
-			if(tmp>color_dist)
-			{
-				//printf("%f:颜色异常\n",s[j].DigitForm[5]);
-				s[j].flag=-1;
-			}
-		}
-	}
-	/***********/
-	//printf("完成排除异常颜色\n");
-	
-	//printf("排除异常梯度\n");
-	/***********
-	maxgrad=0;
-	for(i = 0; i < bbox.num; ++i)
-	{ 
-		MByte* pSrcData;
-		MLong lSrcLine;
-		MDWord dwSum, dwMaxGrad;
-		
-		MLong lGradLine;
-		int lWidth;
-		int lHeight;
-		int left;
-		int right;
-		int top;
-		int bottom;
-		IplImage *tmp=NULL;
-		IplImage *roi=NULL;
-		CvScalar mean;
-		CvScalar std_dev;
-		short* Gx=MNull, *Gy=MNull;
-		if(s[i].flag<0)
-			continue;
-		roi=cvCreateImage(cvSize(pImg->lWidth,pImg->lHeight), IPL_DEPTH_8U, 3);
-		roi->imageData=pImg->pixelArray.chunky.pPixel;
-		pResultList->pResult[i+1].dVal=s[i].DigitForm[5];
-		pResultList->pResult[i+1].Target.left=s[i].DigitForm[0];
-		pResultList->pResult[i+1].Target.right=s[i].DigitForm[1];
-		pResultList->pResult[i+1].Target.top=s[i].DigitForm[2];
-		pResultList->pResult[i+1].Target.bottom=s[i].DigitForm[3];
-		//printf("%d:right=%f left=%f bottom=%f top=%f\n",i,s[i].DigitForm[1],s[i].DigitForm[0],s[i].DigitForm[3],s[i].DigitForm[2]);
-	    left=s[i].DigitForm[0];
-		right=s[i].DigitForm[1];
-		top=s[i].DigitForm[2];
-		bottom=s[i].DigitForm[3];
-		
-		cvSetImageROI(roi,cvRect(left,top,right-left,bottom-top));
-		tmp = cvCreateImage(cvSize(roi->roi->width,roi->roi->height), roi->depth,1);
-		lWidth=right-left;
-		lHeight=bottom-top;
-		cvCvtColor(roi,tmp,CV_BGR2GRAY);
-		//printf("w=%d h=%d\n",roi->width,roi->height);
-		//printf("w=%d h=%d\n",roi->roi->width,roi->roi->height);
-		//printf("w=%d h=%d\n",tmp->width,tmp->height);
-		//cvCopy(roi,tmp,0);
-		cvResetImageROI(roi);
-		lGradLine = JMemLength(right-left);
-		pSrcData=tmp->imageData;
-		lSrcLine=tmp->widthStep;
-		Gx = (short*)malloc((lGradLine*lHeight)*sizeof(short));
-		Gy = (short*)malloc((lGradLine*lHeight)*sizeof(short));
-		dwMaxGrad=0;
-		Gradient_C(pSrcData, lSrcLine, Gx, Gy, lGradLine, MNull, 0,
-		lWidth, lHeight, &dwSum, &dwMaxGrad, MNull);
-		//printf("%f  %d\n",s[i].DigitForm[5],dwMaxGrad);
-		//cvAvgSdv(tmp,&mean,&std_dev,0);
-		
-		//printf("%f\n",std_dev.val[0]);
-		if(i==0){
-			maxgrad=dwMaxGrad;
-			continue;
-		}
-		else if(dwMaxGrad < 0.5*maxgrad)
-		{
-			//printf("%d %f\n",dwMaxGrad,0.2*maxgrad);
-			s[i].flag=-1;
-			//printf("dwMaxGrad1111111111111111111111\n");
-		}
-		//if(s[i].DigitForm[4] >= 0.6)
-		//{
-		//	minstd=MIN(minstd,std_dev.val[0]);
-		//}
-		if(Gx)
-		free(Gx);
-		if(Gy)
-		free(Gy);
-		cvReleaseImage(&tmp);
-		cvReleaseImage(&roi);
-	}
-	/***********/
-	//printf("完成排除异常梯度\n");
-	//printf("bbox.num=%d\n",bbox.num);
+
 	qsort(s, bbox.num, sizeof(sortable_DigitForm), comp);  //从左到右排序
-	/*for(i = 0; i < bbox.num; ++i){
-		printf("num=%f,percent=%f\n",bbox.Bbox[i][5],bbox.Bbox[i][4]);
-	}*/
+
 
 
 	for(i = 0; i < bbox.num; ++i){
@@ -524,47 +355,6 @@ int HYDR_DigitRecog(void *hMRHandle,DR_IMAGES *pImg , HYDR_RESULT_LIST *pResultL
 			s[MinDistX].flag=s[i].flag;
 		}
 	}
-	/*for(i = 0; i < bbox.num; ++i)
-	{
-		printf("%f %f\n",s[i].DigitForm[5],s[i].DigitForm[4]);
-	}*/
-	/*for(i = 0; i < bbox.num; ++i)
-	{
-		if(s[i].DigitForm[4] < 0.6)
-		{
-			int left;
-			int right;
-			int top;
-			int bottom;
-			IplImage *tmp=NULL;
-			IplImage *roi=NULL;
-			CvScalar mean;
-			CvScalar std_dev;
-			roi=cvCreateImage(cvSize(pImg->lWidth,pImg->lHeight), IPL_DEPTH_8U, 3);
-			roi->imageData=pImg->pixelArray.chunky.pPixel;
-			pResultList->pResult[i+1].dVal=s[i].DigitForm[5];
-			pResultList->pResult[i+1].Target.left=s[i].DigitForm[0];
-			pResultList->pResult[i+1].Target.right=s[i].DigitForm[1];
-			pResultList->pResult[i+1].Target.top=s[i].DigitForm[2];
-			pResultList->pResult[i+1].Target.bottom=s[i].DigitForm[3];
-			left=s[i].DigitForm[0];
-			right=s[i].DigitForm[1];
-			top=s[i].DigitForm[2];
-			bottom=s[i].DigitForm[3];
-			tmp = cvCreateImage(cvSize(right-left,bottom-top), roi->depth, roi->nChannels);
-			cvSetImageROI(roi,cvRect(left,top,right-left,bottom-top));
-			cvCopy(roi,tmp,0);
-			cvResetImageROI(roi);
-			cvAvgSdv(tmp,&mean,&std_dev,0);
-			if(std_dev.val[0] < 0.5*minstd)
-			{
-				s[j].flag==-1;
-				printf("1111111111111111111111\n");
-			}
-			cvReleaseImage(&tmp);
-			cvReleaseImage(&roi);
-		}
-	}*/
 
 	for(i = 0;i<group-1;++i){
 		tmp=0;
@@ -639,11 +429,6 @@ EXT:
 			bbox.Bbox[i]=NULL;
 			
 		}
-		/*else 
-		{
-			printf("free fail\n");
-			break;
-		}*/
 	
 	}
 	if(bbox.Bbox)
@@ -656,21 +441,7 @@ EXT:
 		free(s);//3f
 		s=NULL;
 	}
-	//if(B)
-	//{
-	//	free(B);//3f
-	//	B=NULL;
-	//}
-	//if(G)
-	//{
-	//	free(G);//3f
-	//	G=NULL;
-	//}
-	//if(R)
-	//{
-	//	free(R);//3f
-	//	R=NULL;
-	//}
+	
 
 	
 

@@ -1,0 +1,7 @@
+UBUNTU下shell脚本中执行export命令不生效
+解决办法：
+   source *.sh
+
+验证：
+
+   echo $C

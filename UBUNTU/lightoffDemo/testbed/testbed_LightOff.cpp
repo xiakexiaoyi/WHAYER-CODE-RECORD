@@ -11,8 +11,8 @@ int flagEndL = 0,flagEndR = 0;
 
 MVoid onMouse(int Event,int x,int y,int flags,void* param );
 
-int LightOffTrain(HYED_RESULT_LIST *outPattern);	//ÑµÁ·
-int LightOffRecog(HYED_RESULT_LIST inPara);	//Ê¶±ð
+int LightOffTrain(HYED_RESULT_LIST *outPattern);	//Ñµï¿½ï¿½
+int LightOffRecog(HYED_RESULT_LIST inPara);	//Ê¶ï¿½ï¿½
 
 int main(int argc, char** argv){
 	HYED_RESULT_LIST resultlist = {0};
@@ -50,7 +50,7 @@ int LightOffTrain(HYED_RESULT_LIST *resultlist)
 	CvPoint endPt = {0};
 	int modeltype=0,flagL = 0,flagR = 0,i=0,j;
 	
-	pMem=malloc(L_SIZE);  //Åä×¼³õÊ¼»¯
+	pMem=malloc(L_SIZE);  //ï¿½ï¿½×¼ï¿½ï¿½Ê¼ï¿½ï¿½
 	if(!pMem){
 		printf("malloc error\n");
 		return -1;
@@ -71,7 +71,7 @@ int LightOffTrain(HYED_RESULT_LIST *resultlist)
 		return -1;
 	}
 
-	pOrgImg  = cvLoadImage("../../photo/IMG_20170602_105402.jpg", 1);//colord  »ù×¼Í¼    
+	pOrgImg  = cvLoadImage("../../photo/IMG_20170602_105402.jpg", 1);//colord  ï¿½ï¿½×¼Í¼    
 	if (!pOrgImg)
 	{
 		printf("Error when loading image.\n"), exit(1); 
@@ -88,7 +88,7 @@ int LightOffTrain(HYED_RESULT_LIST *resultlist)
 	printf("please select the match area.\n");
 	while (1)
 	{
-		//×ó¼ü½øÐÐ±ê¼Ç ÀàÐÍÎª1 ¼ì²âÁÁ¶È
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Îª1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (mouseParam[2]==CV_EVENT_LBUTTONDOWN)
 		{
 			startPt.x=mouseParam[0];
@@ -125,21 +125,21 @@ int LightOffTrain(HYED_RESULT_LIST *resultlist)
 			flagEndL=0;
 			flagL=0;
 		}
-		if (1 == flagEndL && i != 0 )   //×ó¼ü±ê¼ÇÒ»¸ö½øÐÐÖØÖÃ
+		if (1 == flagEndL && i != 0 )   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			i++;
 			resultlist->lAreaNum++;
 			flagEndL=0;
 			flagL=0;
 		}
-		if (-1 != cvWaitKey(10))  //enter ÍË³ö
+		if (-1 != cvWaitKey(10))  //enter ï¿½Ë³ï¿½
 		{
 			break;
 		}
 		cvShowImage("TrainImage2",tmpImage);
 	}
 	printf("Detection complete.\n");
-	resultlist->origin.x=(resultlist->DtArea[0].left+resultlist->DtArea[0].right)/2;//¼ÆËã»­¿òÖÐÐÄµã
+	resultlist->origin.x=(resultlist->DtArea[0].left+resultlist->DtArea[0].right)/2;//ï¿½ï¿½ï¿½ã»­ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½
 	resultlist->origin.y=(resultlist->DtArea[0].top+resultlist->DtArea[0].bottom)/2;
 	
 	maskImage = cvCreateImage(ImgSize, 8, 1);   //mask image
@@ -172,7 +172,7 @@ int LightOffTrain(HYED_RESULT_LIST *resultlist)
 	wy_maskImage.pixelArray.chunky.lLineBytes = maskImage->widthStep;
 	wy_maskImage.pixelArray.chunky.pPixel = maskImage->imageData;
 	wy_maskImage.lPixelArrayFormat = HYL_IMAGE_GRAY;
-	if (0 != HYL_TrainTemplateFromMask (MHandle, &wy_testImage, &wy_maskImage, "OK", 0))//ÑµÁ·Í¼Æ¬£¬µÃµ½Ä£°å
+	if (0 != HYL_TrainTemplateFromMask (MHandle, &wy_testImage, &wy_maskImage, "OK", 0))//Ñµï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ãµï¿½Ä£ï¿½ï¿½
 	{
 		printf("HYAMR_TrainTemplateFromMask error!\n");
 		goto EXT;
@@ -210,7 +210,7 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 	MPOINT *offset;
 	offset = (MPOINT*)malloc(1*sizeof(MPOINT));
 	
-	pOrgImg2 = cvLoadImage("../../photo/IMG_20170602_105402.jpg", 1);//¶ÁÈ¡´ý²âÍ¼
+	pOrgImg2 = cvLoadImage("../../photo/IMG_20170602_105402.jpg", 1);//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Í¼
 	if (!pOrgImg2)
 	{
 		printf("Error when loading image.\n"), exit(1); 
@@ -225,7 +225,7 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 	imgs.pixelArray.chunky.pPixel = pImg->imageData;
 	imgs.pixelArray.chunky.lLineBytes = pImg->widthStep;
 
-	pMem=malloc(L_SIZE);  //Åä×¼³õÊ¼»¯
+	pMem=malloc(L_SIZE);  //ï¿½ï¿½×¼ï¿½ï¿½Ê¼ï¿½ï¿½
 	if(!pMem){
 		printf("malloc error\n");
 		return -1;
@@ -245,22 +245,22 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 		printf("HYL_MatchInit error!!!\n");
 		return -1;
 	}
-	if (0 != HYL_GetTemplateFromText(MHandle, MR_READ_FILE_PARA))//¶ÁÈ¡Ä£°å
+	if (0 != HYL_GetTemplateFromText(MHandle, MR_READ_FILE_PARA))//ï¿½ï¿½È¡Ä£ï¿½ï¿½
 	{
 		printf("HYAMR_GetTemplateFromText error !\n");
 	}
 
-	HYL_GetDashboard(MHandle, &imgs, "OK", 0.45, offset);//Æ¥ÅäÄ£°å,ÇóÍ¼ÏñÆ«ÒÆÁ¿
+	HYL_GetDashboard(MHandle, &imgs, "OK", 0.45, offset);//Æ¥ï¿½ï¿½Ä£ï¿½ï¿½,ï¿½ï¿½Í¼ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½
 	resultlist.offset.x=offset->x-resultlist.origin.x;
 	resultlist.offset.y=offset->y-resultlist.origin.y;
 
-	if (HYL_LightOffExceptionDetection(NULL, &imgs, &resultlist)<0)//Ê¶±ðÄ¿±ê
+	if (HYL_LightOffExceptionDetection(NULL, &imgs, &resultlist)<0)//Ê¶ï¿½ï¿½Ä¿ï¿½ï¿½
 	{
 		printf("error recognize\n");
 		goto EXT;
 	}
 	
-	for(int i=1;i < resultlist.lAreaNum;i++)//ÔÚÍ¼Æ¬ÖÐÏÔÊ¾
+	for(int i=1;i < resultlist.lAreaNum;i++)//ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½Ê¾
 	{
 		CvPoint ptStart,ptStop;
 		int left=resultlist.DtArea[i].left+resultlist.offset.x;
@@ -271,12 +271,12 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 		ptStart.y=top;
 		ptStop.x=right;
 		ptStop.y=bot;
-		if(resultlist.pResult[i].result == 1)//ÁÁ
+		if(resultlist.pResult[i].result == 1)//ï¿½ï¿½
 		{
 			printf("light%dstate:light\n",y+1);
 			cvRectangle(pImg,ptStart,ptStop,cvScalar(0,0,255),4);
 		}
-		else if(resultlist.pResult[i].result == 2)//Ãð
+		else if(resultlist.pResult[i].result == 2)//ï¿½ï¿½
 		{
 			printf("light%dstate:off\n",y+1);
 			cvRectangle(pImg,ptStart,ptStop,cvScalar(0,255,0),4);
@@ -289,7 +289,7 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 	}
 	cvSaveImage("../../result/result.jpg",pImg);
 	cvShowImage("Result",pImg);
-	cvWaitKey();
+	//cvWaitKey();
 
 EXT:
 	cvReleaseImage(&pImg);

@@ -225,7 +225,7 @@ int AirSwitchRecog(HYAR_RESULT_LIST resultlist)
 	MVoid *pMem=NULL;
 	HYL_IMAGES src = {0};
 	char *cfgfile="../../model/tiny-yolo-voc.cfg";
-	char *weightfile="../../model/tiny-yolo-voc_21000.weights";// 模型 
+	char *weightfile="../../model/tiny-yolo-voc.weights";// 模型 
 	//char *filename="../223.jpg";
     MPOINT *centre;
 	//HYLR_RESULT_LIST Tmpresultlist = {0};

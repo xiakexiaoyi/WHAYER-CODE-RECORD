@@ -2,8 +2,6 @@
 #include "HYL_OilLevel.h"
 #include <opencv2/opencv.hpp>
 
-
-#pragma comment(lib, "../x64/Release/OilLevelLoc.lib")
 #pragma comment(lib, "../x64/Release/oillevel_GPU.lib")
 #ifndef CV_VERSION_EPOCH
 #define OPENCV_VERSION CVAUX_STR(CV_VERSION_MAJOR)"" CVAUX_STR(CV_VERSION_MINOR)"" CVAUX_STR(CV_VERSION_REVISION)
@@ -22,12 +20,13 @@ int main()
 	//char *cfgfile="../model/oillevel/yolo-voc.cfg";
 	//char *weightfile="../model/oillevel/yolo-voc_36000.weights";
 	char *cfgfile = "../model/oillevel/tiny-yolo-voc.cfg";
-	char *weightfile = "../model/oillevel/tiny-yolo-voc_final.weights";
+	char *weightfile = "../model/oillevel/tiny-yolo-voc_21000.weights";
 	char *cfgfile_squareness="../model/sq/tiny-yolo-voc.cfg";
-	char *weightfile_squareness="../model/sq/tiny-yolo-voc_final.weights";
+	char *weightfile_squareness="../model/sq/tiny-yolo-voc_12000.weights";
 	IplImage* pImg = 0;
 	OLR_IMAGES imgs = {0};
 	void *hTLHandle=NULL;
+	void *hOHandle = NULL;
 	float thresh=0.40;
 	HYOLR_RESULT_LIST  resultlist ={0};
 	int w=0,h=0;
@@ -55,6 +54,24 @@ int main()
 			free(resultlist.pResult);
 		HYOLR_Uninit_GPU(hTLHandle);
 		return -1;
+	}
+	//HYOLR_Init(NULL,&hOHandle);
+	if (0 != HYOLR_Init_GPU(NULL, &hOHandle))
+	{
+		printf("HYOLR_Init error.\n");
+		if (resultlist.pResult)
+			free(resultlist.pResult);
+		res = -1;
+		goto EXT;
+	}
+	//HYOLR_SetParam(hOHandle,cfgfile_squareness,weightfile_squareness,thresh,imgw,imgh);
+	if (0 != HYOLR_SetParam_GPU(hOHandle, cfgfile_squareness, weightfile_squareness, thresh, gpu_index, w, h))
+	{
+		printf("HYOLR_SetParam error.\n");
+		if (resultlist.pResult)
+			free(resultlist.pResult);
+		res = -1;
+		goto EXT;
 	}
 
 	imgs.lHeight = pImg->height;
@@ -115,49 +132,66 @@ int main()
 		cvSetImageROI(pImg, cvRect(startPt.x, startPt.y, endPt.x - startPt.x, endPt.y - startPt.y));
 		cvSaveImage("../cut.jpg", pImg);
 		cvResetImageROI(pImg);
-		//两种油位分别讨论
-		if (resultlist.pResult[i].dVal == 0)//oillevel
+
+		//油位合并在一起
+		if (resultlist.pResult[i].dVal == 0 || resultlist.pResult[i].dVal == 1)//改动
 		{
 			IplImage* src = cvLoadImage("../cut.jpg");
-			void *hOHandle = NULL;
+			
+			double percent = 0;
 			int imgw = src->width;
 			int imgh = src->height;
 			OLR_IMAGES imgs_squareness = { 0 };
 			HYOLR_RESULT_LIST  resultlist_squareness = { 0 };
 			resultlist_squareness.pResult = (HYOLR_RESULT*)malloc(20 * sizeof(HYOLR_RESULT));
-			//HYOLR_Init(NULL,&hOHandle);
-			if (0 != HYOLR_Init_GPU(NULL, &hOHandle))
-			{
-				printf("HYOLR_Init error.\n");
-				if (resultlist_squareness.pResult)
-					free(resultlist_squareness.pResult);
-				res = -1;
-				goto EXT;
-			}
-			//HYOLR_SetParam(hOHandle,cfgfile_squareness,weightfile_squareness,thresh,imgw,imgh);
-			if (0 != HYOLR_SetParam_GPU(hOHandle, cfgfile_squareness, weightfile_squareness, thresh,gpu_index, imgw, imgh))
-			{
-				printf("HYOLR_SetParam error.\n");
-				if (resultlist_squareness.pResult)
-					free(resultlist_squareness.pResult);
-				HYOLR_Uninit_GPU(hOHandle);
-				res = -1;
-				goto EXT;
-			}
+			
+
 			imgs_squareness.lHeight = src->height;
 			imgs_squareness.lWidth = src->width;
 			imgs_squareness.pixelArray.chunky.lLineBytes = src->widthStep;
 			imgs_squareness.pixelArray.chunky.pPixel = src->imageData;
-			//HYOLR_OilRecog(hOHandle,&imgs_squareness,&resultlist_squareness);//寻找油位
-			if (HYOLR_OilRecog_GPU(hOHandle, &imgs_squareness, &resultlist_squareness) != 0)
+
+			//改动
+			int flag = HYOLR_OilRecog_GPU(hOHandle, &imgs_squareness, &resultlist_squareness);
+			if (flag == -99)//判断返回值，为-99时为 未找到目标
 			{
 				printf("没有油位\n");
+				percent = 100;
+				printf("percent=%f\n", percent);
+				cvReleaseImage(&src);
 				if (resultlist_squareness.pResult)
 					free(resultlist_squareness.pResult);
-				HYOLR_Uninit_GPU(hOHandle);
+				continue;
+			}
+			if (flag != 0)
+			{
+				printf("HYOLR_OilRecog_GPU error!\n");
+				cvReleaseImage(&src);
+				if (resultlist_squareness.pResult)
+					free(resultlist_squareness.pResult);
+				if (resultlist.pResult)
+					free(resultlist.pResult);
+				cvReleaseImage(&pImg);
 				res = -1;
 				goto EXT;
 			}
+			//
+			/*HYOLR_RESULT_LIST  resultlist_squarenesstmp = { 0 };
+			resultlist_squarenesstmp.pResult = (HYOLR_RESULT*)malloc(20 * sizeof(HYOLR_RESULT));
+			resultlist_squarenesstmp.lResultNum = 0;
+			for (int j = 0; j < resultlist_squareness.lResultNum; j++)
+			{
+			if (resultlist_squarenesstmp.pResult[j].dVal == 3)
+			continue;
+			resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].dVal = resultlist_squareness.pResult[j].dVal;
+			resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].dConfidence = resultlist_squareness.pResult[j].dConfidence;
+			resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].flag = resultlist_squareness.pResult[j].flag;
+			resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].Target.bottom = resultlist_squareness.pResult[j].Target.bottom;
+			resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].Target.left = resultlist_squareness.pResult[j].Target.left;
+			resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum].Target.right = resultlist_squareness.pResult[j].Target.right;
+			resultlist_squarenesstmp.pResult[resultlist_squarenesstmp.lResultNum++].Target.top = resultlist_squareness.pResult[j].Target.top;
+			}*/
+
 			for (int i = 0; i < resultlist_squareness.lResultNum; i++)
 			{
 				CvPoint ptStart, ptStop, ptText;
@@ -183,54 +217,52 @@ int main()
 				//cvPutText(src, text, ptText, &font,  cvScalar(0,255,0));
 			}
 
-			cvShowImage("Result Show", src);
+			cvShowImage("OIL Result Show", src);
 			cvSaveImage("../cutoil.jpg", src);
-			double percent = 0;
-			if (resultlist_squareness.pResult[i].dVal == 0)
-				percent = 100.0 - 100.0*resultlist_squareness.pResult[i].Target.top / imgh;
+
+			int flagoil = 0;
+			for (int j = 0; j < resultlist_squareness.lResultNum; j++)
+			{
+				if (resultlist_squareness.pResult[j].dVal == 0)
+				{
+					percent = 100.0 - 100.0*resultlist_squareness.pResult[j].Target.top / imgh;
+					flagoil = 1;
+				}
+				else if (resultlist_squareness.pResult[j].dVal == 1)
+				{
+					percent = 100.0 - 100.0*(resultlist_squareness.pResult[j].Target.top + resultlist_squareness.pResult[j].Target.bottom) / (imgh * 2);
+					flagoil = 1;
+				}
+
+				else if (resultlist_squareness.pResult[j].dVal == 2)
+				{
+					percent = 100.0 - 100.0*(resultlist_squareness.pResult[j].Target.top + resultlist_squareness.pResult[j].Target.bottom) / (imgh * 2);
+					flagoil = 1;
+				}
+			}
+			if (flagoil == 0)
+				percent = 100;
+
+			/*if (resultlist_squareness.pResult[i].dVal == 0)
+			percent = 100.0 - 100.0*resultlist_squareness.pResult[i].Target.top / imgh;
 			else if (resultlist_squareness.pResult[i].dVal == 1)
-				percent = 10.0 - 10.0*(resultlist_squareness.pResult[i].Target.top + resultlist_squareness.pResult[i].Target.bottom) / (imgh * 2);
+			percent = 100.0 - 100.0*(resultlist_squareness.pResult[i].Target.top + resultlist_squareness.pResult[i].Target.bottom) / (imgh * 2);
+			else if (resultlist_squareness.pResult[i].dVal == 2)
+			percent = 100.0 - 100.0*(resultlist_squareness.pResult[i].Target.top + resultlist_squareness.pResult[i].Target.bottom) / (imgh * 2);*/
+
+
 			printf("percent=%f\n", percent);
-			cvWaitKey(0);
+			cvWaitKey(10);
 			cvReleaseImage(&src);
-			HYOLR_Uninit_GPU(hOHandle);
 			if (resultlist_squareness.pResult)
 				free(resultlist_squareness.pResult);
-
-
-		}
-		else if (resultlist.pResult[i].dVal == 1)//whiteblock
-		{
-			IplImage* src = cvLoadImage("../cut.jpg", CV_LOAD_IMAGE_GRAYSCALE);
-			int oil[1] = { 0 };
-			OL_IMAGES imgs1 = { 0 };
-			imgs1.lHeight = src->height;
-			imgs1.lWidth = src->width;
-			imgs1.pixelArray.chunky.lLineBytes = src->widthStep;
-			imgs1.pixelArray.chunky.pPixel = src->imageData;
-			HY_whiteBlock(&imgs1, oil);//寻找白块中黑线
-			//printf("%d\n",oil[0]);
-			if (oil[0] == 0)
-			{
-				printf("未找到油位\n");
-			}
-			IplImage* dst = cvLoadImage("../cut.jpg");
-			cvCircle(dst, cvPoint(dst->width / 2, oil[0]), 1, CV_RGB(255, 0, 0), -1, 8, 0);
-			double percent = 100.0 - 100.0*oil[0] / src->height;
-			printf("percent=%f\n", percent);
-			cvShowImage("OIL Result Show", dst);
-			cvSaveImage("../result.jpg", dst);
-			//HY_OilLevel(&imgs1,oil,max,min);
-			//printf("oil=%d\n",oil[0]);
-			cvWaitKey(0);
-			cvReleaseImage(&src);
-			cvReleaseImage(&dst);
 		}
 	}
 
 EXT:
 	cvReleaseImage(&pImg);
 	HYOLR_Uninit_GPU(hTLHandle);
+	HYOLR_Uninit_GPU(hOHandle);
 	if (resultlist.pResult)
 		free(resultlist.pResult);
 }

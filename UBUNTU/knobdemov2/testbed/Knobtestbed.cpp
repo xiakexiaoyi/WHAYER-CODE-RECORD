@@ -94,7 +94,7 @@ int KnobTrain(HYKR_RESULT_LIST *resultlist)
 	printf("please select the match area. \n");
 	while (1)
 	{
-		//??????§Ò?? 
+		//??????ï¿½ï¿½?? 
 		if (mouseParam[2]==CV_EVENT_LBUTTONDOWN)
 		{
 			startPt.x=mouseParam[0];
@@ -228,7 +228,7 @@ int KnobRecog(HYKR_RESULT_LIST resultlist)
 	MVoid *pMem=NULL;
 	HYL_IMAGES src = {0};
 	char *cfgfile="../../model/tiny-yolo-voc.cfg";
-	char *weightfile="../../model/tiny-yolo-voc_60000.weights";// ??? 
+	char *weightfile="../../model/tiny-yolo-voc_final.weights";// ??? 
 	//char *filename="../1.jpg";
     MPOINT *centre;
 	//HYLR_RESULT_LIST Tmpresultlist = {0};

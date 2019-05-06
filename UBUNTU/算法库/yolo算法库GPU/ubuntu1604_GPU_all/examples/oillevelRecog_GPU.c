@@ -164,7 +164,7 @@ int HYOLR_OilRecog_GPU(void *hMRHandle,OLR_IMAGES *pImg,HYOLR_RESULT_LIST *pResu
 	if(bbox_out.num == 0)
 	{
 		printf("Î´ÕÒµ½Ä¿±ê\n");
-		res = -1;
+		res = -99;
 		goto EXT;
 	}
 	

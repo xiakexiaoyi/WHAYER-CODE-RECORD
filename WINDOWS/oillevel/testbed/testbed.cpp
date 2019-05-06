@@ -1,9 +1,7 @@
 #include "oillevelRecog.h"
-#include "HYL_OilLevel.h"
 #include <opencv2/opencv.hpp>
 
 
-#pragma comment(lib, "../x64/Release/OilLevelLoc.lib")
 #pragma comment(lib, "../x64/Release/oillevel.lib")
 #ifndef CV_VERSION_EPOCH
 #define OPENCV_VERSION CVAUX_STR(CV_VERSION_MAJOR)"" CVAUX_STR(CV_VERSION_MINOR)"" CVAUX_STR(CV_VERSION_REVISION)
@@ -18,13 +16,13 @@
 int main()
 {
 	int res=0;
-	char *filename="../img/justForTestPic333.jpg";
+	char *filename="../img/crop1_oil_107.jpg";
 	//char *cfgfile="../model/oillevel/yolo-voc.cfg";
 	//char *weightfile="../model/oillevel/yolo-voc_36000.weights";
 	char *cfgfile = "../model/oillevel/tiny-yolo-voc.cfg";
-	char *weightfile = "../model/oillevel/tiny-yolo-voc_final.weights";
+	char *weightfile = "../model/oillevel/tiny-yolo-voc_21000.weights";
 	char *cfgfile_squareness="../model/sq/tiny-yolo-voc.cfg";
-	char *weightfile_squareness="../model/sq/tiny-yolo-voc_final.weights";
+	char *weightfile_squareness="../model/sq/tiny-yolo-voc_12000.weights";
 	IplImage* pImg = 0;
 	OLR_IMAGES imgs = {0};
 	void *hTLHandle=NULL;
@@ -114,11 +112,12 @@ int main()
 		cvSetImageROI(pImg, cvRect(startPt.x, startPt.y, endPt.x - startPt.x, endPt.y - startPt.y));
 		cvSaveImage("../cut.jpg", pImg);
 		cvResetImageROI(pImg);
-		//两种油位分别讨论
-		if (resultlist.pResult[i].dVal == 0)//oillevel
+		//油位合并在一起
+		if (resultlist.pResult[i].dVal == 0 || resultlist.pResult[i].dVal == 1)//
 		{
 			IplImage* src = cvLoadImage("../cut.jpg");
 			void *hOHandle = NULL;
+			double percent = 0;
 			int imgw = src->width;
 			int imgh = src->height;
 			OLR_IMAGES imgs_squareness = { 0 };
@@ -148,9 +147,22 @@ int main()
 			imgs_squareness.pixelArray.chunky.lLineBytes = src->widthStep;
 			imgs_squareness.pixelArray.chunky.pPixel = src->imageData;
 			//HYOLR_OilRecog(hOHandle,&imgs_squareness,&resultlist_squareness);//寻找油位
-			if (HYOLR_OilRecog(hOHandle, &imgs_squareness, &resultlist_squareness) != 0)
+			int flag = HYOLR_OilRecog(hOHandle, &imgs_squareness, &resultlist_squareness);
+			if (flag == -99)//判断返回值，为-99时为 未找到目标
 			{
 				printf("没有油位\n");
+				percent = 100;
+				printf("percent=%f\n", percent);
+				cvReleaseImage(&src);
+				if (resultlist_squareness.pResult)
+					free(resultlist_squareness.pResult);
+				HYOLR_Uninit(hOHandle);
+				continue;
+			}
+			if (flag != 0)
+			{
+				printf("HYOLR_OilRecog error!\n");
+				cvReleaseImage(&src);
 				if (resultlist_squareness.pResult)
 					free(resultlist_squareness.pResult);
 				HYOLR_Uninit(hOHandle);
@@ -184,46 +196,36 @@ int main()
 
 			cvShowImage("Result Show", src);
 			cvSaveImage("../cutoil.jpg", src);
-			double percent = 0;
-			if (resultlist_squareness.pResult[i].dVal == 0)
-				percent = 100.0 - 100.0*resultlist_squareness.pResult[i].Target.top / imgh;
-			else if (resultlist_squareness.pResult[i].dVal == 1)
-				percent = 10.0 - 10.0*(resultlist_squareness.pResult[i].Target.top + resultlist_squareness.pResult[i].Target.bottom) / (imgh * 2);
+
+			int flagoil = 0;
+			for (int j = 0; j < resultlist_squareness.lResultNum; j++)
+			{
+				if (resultlist_squareness.pResult[j].dVal == 0)
+				{
+					percent = 100.0 - 100.0*resultlist_squareness.pResult[j].Target.top / imgh;
+					flagoil = 1;
+				}
+				else if (resultlist_squareness.pResult[j].dVal == 1)
+				{
+					percent = 100.0 - 100.0*(resultlist_squareness.pResult[j].Target.top + resultlist_squareness.pResult[j].Target.bottom) / (imgh * 2);
+					flagoil = 1;
+				}
+
+				else if (resultlist_squareness.pResult[j].dVal == 2)
+				{
+					percent = 100.0 - 100.0*(resultlist_squareness.pResult[j].Target.top + resultlist_squareness.pResult[j].Target.bottom) / (imgh * 2);
+					flagoil = 1;
+				}
+			}
+			if (flagoil == 0)
+				percent = 100;
+
 			printf("percent=%f\n", percent);
 			cvWaitKey(0);
 			cvReleaseImage(&src);
 			HYOLR_Uninit(hOHandle);
 			if (resultlist_squareness.pResult)
 				free(resultlist_squareness.pResult);
-
-
-		}
-		else if (resultlist.pResult[i].dVal == 1)//whiteblock
-		{
-			IplImage* src = cvLoadImage("../cut.jpg", CV_LOAD_IMAGE_GRAYSCALE);
-			int oil[1] = { 0 };
-			OL_IMAGES imgs1 = { 0 };
-			imgs1.lHeight = src->height;
-			imgs1.lWidth = src->width;
-			imgs1.pixelArray.chunky.lLineBytes = src->widthStep;
-			imgs1.pixelArray.chunky.pPixel = src->imageData;
-			HY_whiteBlock(&imgs1, oil);//寻找白块中黑线
-			//printf("%d\n",oil[0]);
-			if (oil[0] == 0)
-			{
-				printf("未找到油位\n");
-			}
-			IplImage* dst = cvLoadImage("../cut.jpg");
-			cvCircle(dst, cvPoint(dst->width / 2, oil[0]), 1, CV_RGB(255, 0, 0), -1, 8, 0);
-			double percent = 100.0 - 100.0*oil[0] / src->height;
-			printf("percent=%f\n", percent);
-			cvShowImage("OIL Result Show", dst);
-			cvSaveImage("../result.jpg", dst);
-			//HY_OilLevel(&imgs1,oil,max,min);
-			//printf("oil=%d\n",oil[0]);
-			cvWaitKey(0);
-			cvReleaseImage(&src);
-			cvReleaseImage(&dst);
 		}
 	}
 

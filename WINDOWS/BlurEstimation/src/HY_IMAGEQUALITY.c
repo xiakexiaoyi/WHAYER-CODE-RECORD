@@ -265,7 +265,7 @@ MRESULT HYIQ_NOISE(MHandle hHandle,IQ_PIMAGES pImage,IQ_PIMAGES pImage1,HYIQ_PTO
 			TransGrayImgToBlock(imgSrc1,&blockimgsrc1);
 			break;
 		case FORMAT_YUV420:
-			GO( ImgCreate(hMemMgr,&imgbgr1,FORMAT_BGR,ImgSrc.dwWidth,ImgSrc.dwHeight));
+			GO(ImgCreate(hMemMgr,&imgbgr1,FORMAT_BGR,ImgSrc.dwWidth,ImgSrc.dwHeight));
 			GO(FmttransYUV2BGR(&imgSrc1,&imgbgr1));
 			GO(ImgCreate(hMemMgr,&imggray1,FORMAT_GRAY,ImgSrc.dwWidth,ImgSrc.dwHeight));
 			GO(ImgFmtTrans(&imgbgr1,&imggray1));

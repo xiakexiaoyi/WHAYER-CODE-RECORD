@@ -222,8 +222,8 @@ MHandle JMemMgrCreate(MVoid *pMem, MLong nMemSize)
 	
 	// create the head cell
 	pCellHeader = (LPAM_MEMPOOLCELLHEADER)
-		(((MDWord)pMem + ALIGN_SIZE - 1) & (~(ALIGN_SIZE - 1))); 
-	nMemSize = nMemSize - ((MDWord)pCellHeader - (MDWord)pMem); 
+		(((MDWord)pMem + ALIGN_SIZE - 1) & (~(ALIGN_SIZE - 1)));
+	nMemSize = nMemSize - ((MDWord)pCellHeader - (MDWord)pMem);
 	nMemSize &= (~(ALIGN_SIZE - 1));
 
 	nMemSize -= 2 * sizeof(AM_MEMPOOLCELLHEADER);

@@ -11,7 +11,7 @@ void onMouse(int Event, int x, int y, int flags, void *param);
 int LinkTrain(HYLR_RESULT_LIST *resultlist);
 int LinkRecog(HYLR_RESULT_LIST resultlist);
 
-char imgname[50] = "002.jpg";
+char imgname[50] = "XN_960P_0046.jpg";
 char filename[100] = "../../photo/";
 char resultname[100] = "../../result/";
 
@@ -211,17 +211,17 @@ int LinkRecog(HYLR_RESULT_LIST resultlist)
 	MHandle MHandle = NULL;
 	MVoid *pMem = NULL;
 	HYL_IMAGES src = {0};
-	//��״ѹ��
-	/**/
+	//柱状压板
+	/**
 	char *cfgfile = "../../model/Link/yaban1/tiny-yolo-voc.cfg";
-	char *weightfile = "../../model/Link/yaban1/tiny-yolo-voc_38000.weights"; // ģ��
-																			  /**/
-																			  //I��ѹ��
-																			  /**
-	char *cfgfile="../model/Link/yaban2/tiny-yolo-voc.cfg";
-	char *weightfile="../model/Link/yaban2/tiny-yolo-voc_final.weights";
+	char *weightfile = "../../model/Link/yaban1/tiny-yolo-voc.weights"; // ģ��
 	/**/
-																			  //char *filename="../006.jpg";
+	//I型压板
+	/**/
+	char *cfgfile="../../model/Link/yaban2/tiny-yolo-voc.cfg";
+	char *weightfile="../../model/Link/yaban2/tiny-yolo-voc.weights";
+	/**/
+	//char *filename="../006.jpg";
 	MPOINT *centre;
 	//HYLR_RESULT_LIST Tmpresultlist = {0};
 	MPOINT offset;

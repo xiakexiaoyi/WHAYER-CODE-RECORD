@@ -20,11 +20,11 @@ int main123()
 int main()
 {
 	char *filename="../../photo/1115glkg_fen_125.jpg";
-	/******YOLOÄ£ÐÍ*******/
-	char *cfgfile="../../model/yolo-voc.cfg";
-	char *weightfile="../../model/yolo-voc_final.weights";
+	/******YOLOÄ£ï¿½ï¿½*******/
+	char *cfgfile="../../model/ä¸¤æŸ±/tiny-yolo-voc.cfg";
+	char *weightfile="../../model/ä¸¤æŸ±/tiny-yolo-voc_final.weights";
 	/*************/
-	/******TINY-YOLOÄ£ÐÍ*******
+	/******TINY-YOLOÄ£ï¿½ï¿½*******
 	char *cfgfile="../../model/1123/tiny-yolo-voc.cfg";
 	char *weightfile="../../model/1123/tiny-yolo-voc_55000.weights";
 	/*************/
@@ -35,11 +35,11 @@ int main()
 	HYDSR_RESULT_LIST  resultlist ={0};
 	int w=0,h=0;
 
-	//IplImage* src = cvLoadImage(filename,CV_LOAD_IMAGE_COLOR);    //Í¼ÏñËÄÖÜ¼Ó°×±ß
+	//IplImage* src = cvLoadImage(filename,CV_LOAD_IMAGE_COLOR);    //Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼Ó°×±ï¿½
     //pImg = cvCreateImage(cvSize(src->width*1.02, src->height*1.04), src->depth, src->nChannels);
 	//cvCopyMakeBorder(src, pImg, cvPoint(src->width*0.01, src->height*0.02), IPL_BORDER_CONSTANT, cvScalarAll(255));
 
-	pImg = cvLoadImage(filename,CV_LOAD_IMAGE_COLOR); //Ô­Í¼ÊäÈë
+	pImg = cvLoadImage(filename,CV_LOAD_IMAGE_COLOR); //Ô­Í¼ï¿½ï¿½ï¿½ï¿½
 
 	w=pImg->width;
 	h=pImg->height;

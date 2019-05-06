@@ -1,0 +1,6 @@
+工程文件：yoloDigit.sln
+双击打开后生成DigitalRecog项目得到算法库，此项目依赖yolo_cpp_dll_no_gpu库。
+
+MatchRigidBody库在WhayerCode_vs2008文件夹内WhayerCode_vs2008.sln工程里的MatchRigidBody项目中。
+
+运行testbed项目（此为demo，依赖MatchRigidBody库，DigitalRecog库），先画一个框确定刚体匹配区域。再将待测目标一个一个框出来。一组数字一组数字的框选。

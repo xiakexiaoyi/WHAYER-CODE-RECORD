@@ -1,0 +1,1 @@
+darknet.exe detector train data/voc.data cfg/yolov3-voc_small.cfg darknet53.conv.74

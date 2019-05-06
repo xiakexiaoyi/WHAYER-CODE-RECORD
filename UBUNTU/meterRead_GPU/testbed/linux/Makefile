@@ -8,8 +8,7 @@ OBJPATH		= ../../int/
 
 LFLAGS = -lm
 TARGET = testBed
-libpath=-L ../../libs/linux/ -ldarknetGPU
-libpath+= ../../libs/linux/HYAlgorithm.a   \
+libpath=-L ../../libs/linux/ -ldarknetGPU -lHYAlgorithm  \
 	`pkg-config --libs opencv`
 
 

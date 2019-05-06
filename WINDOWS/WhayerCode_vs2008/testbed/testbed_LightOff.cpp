@@ -99,7 +99,30 @@ int LightOffTrain(HYED_RESULT_LIST *resultlist)
 	CvPoint endPt = {0};
 
 	int modeltype=0,flagL = 0,flagR = 0,i=0,j;
-	HYL_MatchInit(NULL, &MHandle);
+
+	void* pMem = NULL;
+	void* hMemMgr = NULL;
+	pMem = malloc(1024 * 1024 * 10);
+	if (!pMem)
+	{
+		return -1;
+	}
+	hMemMgr = HYL_MemMgrCreate(pMem, 1024 * 1024 * 10);
+	if (!hMemMgr)
+	{
+		free(pMem);
+		pMem = NULL;
+		return -1;
+	}
+	HYL_MatchInit(hMemMgr, &MHandle);
+	if (!MHandle)
+	{
+		HYL_MemMgrDestroy(hMemMgr);
+		free(pMem);
+		pMem = NULL;
+		return -1;
+	}
+	//HYL_MatchInit(NULL, &MHandle);
 
 	pOrgImg  = cvLoadImage("..\\IMG_20170602_105402.jpg", 1);//colord  »ù×¼Í¼    
 	if (!pOrgImg)
@@ -231,6 +254,12 @@ int LightOffTrain(HYED_RESULT_LIST *resultlist)
 	}
 EXT:
 	HYL_MatchUninit(MHandle);
+	HYL_MemMgrDestroy(hMemMgr);
+	if (pMem)
+	{
+		free(pMem);
+		pMem = NULL;
+	}
 	return res;
 }
 
@@ -256,7 +285,28 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 	offset = (MPOINT*)malloc(1*sizeof(MPOINT));
 	int modeltype=0,flagL = 0,flagR = 0,i=0;
 	//HYL_LightOffInit(NULL, &KRHandle);
-	HYL_MatchInit(NULL, &MHandle);
+	void* pMem = NULL;
+	void* hMemMgr = NULL;
+	pMem = malloc(1024 * 1024 * 10);
+	if (!pMem)
+	{
+		return -1;
+	}
+	hMemMgr = HYL_MemMgrCreate(pMem, 1024 * 1024 * 10);
+	if (!hMemMgr)
+	{
+		free(pMem);
+		pMem = NULL;
+		return -1;
+	}
+	HYL_MatchInit(hMemMgr, &MHandle);
+	if (!MHandle)
+	{
+		HYL_MemMgrDestroy(hMemMgr);
+		free(pMem);
+		pMem = NULL;
+		return -1;
+	}
 
 	
 	//WY_DEBUG_PRINT("ÊäÈë·ÖÎöÀàÐÍ£º0×ó°ëÈ¦ÐýÅ¥£¨ºáÊú£©£¬1ÉÏ°ëÈ¦ÐýÅ¥£¨·Çºá£©\n");
@@ -295,6 +345,15 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 	if (0 != HYL_GetTemplateFromText(MHandle, MR_READ_FILE_PARA))
 	{
 		WY_DEBUG_PRINT("HYAMR_GetTemplateFromText error !\n");
+		free(offset);
+		HYL_MatchUninit(MHandle);
+		HYL_MemMgrDestroy(hMemMgr);
+		if (pMem)
+		{
+			free(pMem);
+			pMem = NULL;
+		}
+		return res;
 	}
 
 	HYL_GetDashboard(MHandle, &imgs, "OK", 0.45, offset);//Æ¥ÅäÄ£°å,ÇóÍ¼ÏñÆ«ÒÆÁ¿
@@ -340,6 +399,12 @@ int LightOffRecog(HYED_RESULT_LIST resultlist)
 EXT:
 	free(offset);
 	HYL_MatchUninit(MHandle);
+	HYL_MemMgrDestroy(hMemMgr);
+	if (pMem)
+	{
+		free(pMem);
+		pMem = NULL;
+	}
 //	HYL_LightOffUninit(KRHandle);
 	return res;
 }

@@ -304,9 +304,13 @@ MRESULT LiCast(MHandle hMemMgr,PJOFFSCREEN imgsrc,PRatio ratiosrc)
         return res;
     }
 /// \get r,g,b data;
-    AllocVectMem(hMemMgr,bgr.B,len,MUInt8);
+    /*AllocVectMem(hMemMgr,bgr.B,len,MUInt8);
     AllocVectMem(hMemMgr,bgr.G,len,MUInt8);
-    AllocVectMem(hMemMgr,bgr.R,len,MUInt8);
+    AllocVectMem(hMemMgr,bgr.R,len,MUInt8);*/
+	bgr.B = (MUInt8*)calloc(len, sizeof(MUInt8));
+	bgr.G = (MUInt8*)calloc(len, sizeof(MUInt8));
+	bgr.R = (MUInt8*)calloc(len, sizeof(MUInt8));
+
     GET_CHANNEL(imgsrc->pixelArray.chunky.pPixel,width,height, imgsrc->pixelArray.chunky.dwImgLine,3,bgr.B,width,0,MUInt8);
     GET_CHANNEL(imgsrc->pixelArray.chunky.pPixel,width,height, imgsrc->pixelArray.chunky.dwImgLine,3,bgr.G,width,1,MUInt8);
     GET_CHANNEL(imgsrc->pixelArray.chunky.pPixel,width,height, imgsrc->pixelArray.chunky.dwImgLine,3,bgr.R,width,2,MUInt8);
@@ -398,8 +402,23 @@ MRESULT LiCast(MHandle hMemMgr,PJOFFSCREEN imgsrc,PRatio ratiosrc)
     ratiosrc->rratio=fabs((meanr-meant)/meant);
 	
 EXT:
-    FreeVectMem(hMemMgr,bgr.B);
+	if (bgr.B)
+	{
+		free(bgr.B);
+		bgr.B = NULL;
+	}
+	if (bgr.G)
+	{
+		free(bgr.G);
+		bgr.G = NULL;
+	}
+	if (bgr.R)
+	{
+		free(bgr.R);
+		bgr.R = NULL;
+	}
+    /*FreeVectMem(hMemMgr,bgr.B);
     FreeVectMem(hMemMgr,bgr.G);
-    FreeVectMem(hMemMgr,bgr.R);
+    FreeVectMem(hMemMgr,bgr.R);*/
     return res;
 }

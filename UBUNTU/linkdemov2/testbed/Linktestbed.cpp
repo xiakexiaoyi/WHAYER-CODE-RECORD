@@ -21,12 +21,12 @@ int main()
 	HYLR_RESULT_LIST resultlist = {0};
 	strcat(filename, imgname);
 	strcat(resultname, imgname);
-	resultlist.lMaxResultNum = 50; //×î´óÄ¿±êÊýÄ¿
+	resultlist.lMaxResultNum = 50; //ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Ä¿
 	resultlist.LRArea = (MLRECT *)malloc(resultlist.lMaxResultNum * sizeof(MLRECT));
 	resultlist.pResult = (HYLR_RESULT *)malloc(resultlist.lMaxResultNum * sizeof(HYLR_RESULT));
-	LinkTrain(&resultlist); //ÑµÁ·
+	LinkTrain(&resultlist); //Ñµï¿½ï¿½
 
-	LinkRecog(resultlist); //Ê¶±ð
+	LinkRecog(resultlist); //Ê¶ï¿½ï¿½
 
 	if (resultlist.LRArea)
 		free(resultlist.LRArea);
@@ -50,7 +50,7 @@ int LinkTrain(HYLR_RESULT_LIST *resultlist)
 	MVoid *pMem = NULL;
 	HYL_IMAGES wy_testImage = {0}, wy_maskImage = {0};
 	//char *filename="../006.jpg";
-	pMem = malloc(L_SIZE); //Åä×¼³õÊ¼»¯
+	pMem = malloc(L_SIZE); //ï¿½ï¿½×¼ï¿½ï¿½Ê¼ï¿½ï¿½
 	if (!pMem)
 	{
 		printf("malloc error\n");
@@ -86,7 +86,7 @@ int LinkTrain(HYLR_RESULT_LIST *resultlist)
 	printf("please select the match area.\n");
 	while (1)
 	{
-		//×ó¼ü½øÐÐ±ê¼Ç
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½
 		if (mouseParam[2] == CV_EVENT_LBUTTONDOWN)
 		{
 			startPt.x = mouseParam[0];
@@ -137,7 +137,7 @@ int LinkTrain(HYLR_RESULT_LIST *resultlist)
 			flagL = 0;
 		}
 
-		if (-1 != cvWaitKey(10)) //enter ÍË³ö
+		if (-1 != cvWaitKey(10)) //enter ï¿½Ë³ï¿½
 		{
 			break;
 		}
@@ -178,7 +178,7 @@ int LinkTrain(HYLR_RESULT_LIST *resultlist)
 	wy_maskImage.pixelArray.chunky.lLineBytes = maskImage->widthStep;
 	wy_maskImage.pixelArray.chunky.pPixel = maskImage->imageData;
 	wy_maskImage.lPixelArrayFormat = HYL_IMAGE_GRAY;
-	if (0 != HYL_TrainTemplateFromMask(MHandle, &wy_testImage, &wy_maskImage, "OK", 0)) //ÑµÁ·Í¼Æ¬£¬µÃµ½Ä£°å
+	if (0 != HYL_TrainTemplateFromMask(MHandle, &wy_testImage, &wy_maskImage, "OK", 0)) //Ñµï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ãµï¿½Ä£ï¿½ï¿½
 	{
 		printf("HYAMR_TrainTemplateFromMask error!\n");
 		goto EXT;
@@ -210,17 +210,17 @@ int LinkRecog(HYLR_RESULT_LIST resultlist)
 	MHandle MHandle = NULL;
 	MVoid *pMem = NULL;
 	HYL_IMAGES src = {0};
-	//Öù×´Ñ¹°å
+	//æŸ±çŠ¶åŽ‹æ¿
 	/**/
 	char *cfgfile = "../../model/Link/yaban1/tiny-yolo-voc.cfg";
-	char *weightfile = "../../model/Link/yaban1/tiny-yolo-voc_38000.weights"; // Ä£ÐÍ
-																			  /**/
-																			  //IÐÍÑ¹°å
-																			  /**
-	char *cfgfile="../model/Link/yaban2/tiny-yolo-voc.cfg";
-	char *weightfile="../model/Link/yaban2/tiny-yolo-voc_final.weights";
+	char *weightfile = "../../model/Link/yaban1/tiny-yolo-voc.weights"; // Ä£ï¿½ï¿½
 	/**/
-																			  //char *filename="../006.jpg";
+	//Iåž‹åŽ‹æ¿
+	/**
+	char *cfgfile="../model/Link/yaban2/tiny-yolo-voc.cfg";
+	char *weightfile="../model/Link/yaban2/tiny-yolo-voc.weights";
+	/**/
+	//char *filename="../006.jpg";
 	MPOINT *centre;
 	//HYLR_RESULT_LIST Tmpresultlist = {0};
 	MPOINT offset;
@@ -228,7 +228,7 @@ int LinkRecog(HYLR_RESULT_LIST resultlist)
 	CvPoint endPt = {0};
 	IplImage *pImg = 0;
 	pImg = cvLoadImage(filename, CV_LOAD_IMAGE_COLOR);
-	pMem = malloc(L_SIZE); //Åä×¼³õÊ¼»¯
+	pMem = malloc(L_SIZE); //ï¿½ï¿½×¼ï¿½ï¿½Ê¼ï¿½ï¿½
 	if (!pMem)
 	{
 		printf("malloc error\n");
@@ -266,12 +266,12 @@ int LinkRecog(HYLR_RESULT_LIST resultlist)
 	src.lPixelArrayFormat = HYL_IMAGE_BGR;
 	src.pixelArray.chunky.pPixel = pImg->imageData;
 	src.pixelArray.chunky.lLineBytes = pImg->widthStep;
-	HYL_GetDashboard(MHandle, &src, "OK", 0.45, centre); //Æ¥ÅäÄ£°å,ÇóÍ¼ÏñÆ«ÒÆÁ¿
+	HYL_GetDashboard(MHandle, &src, "OK", 0.45, centre); //Æ¥ï¿½ï¿½Ä£ï¿½ï¿½,ï¿½ï¿½Í¼ï¿½ï¿½Æ«ï¿½ï¿½ï¿½ï¿½
 	resultlist.offset.x = centre->x - resultlist.origin.x;
 	resultlist.offset.y = centre->y - resultlist.origin.y;
 
 	MLRECT rtArea;
-	//for(int i=0;i<resultlist.lAreaNum;i++)//Êµ¼ÊÃ»ÓÐÑ­»·
+	//for(int i=0;i<resultlist.lAreaNum;i++)//Êµï¿½ï¿½Ã»ï¿½ï¿½Ñ­ï¿½ï¿½
 	{
 		IplImage *RectImg = NULL;
 		rtArea.bottom = resultlist.MatchArea.bottom + resultlist.offset.y;

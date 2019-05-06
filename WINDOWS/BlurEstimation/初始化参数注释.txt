@@ -1,0 +1,48 @@
+外部设置阈值和之前类似
+通过设置结构体CustomParam custopar的值，来传入参数
+下面的是外部阈值输入示例
+使结构体中对应的值设为非0，即可输入外部参数
+结构体中对应的值为0时，使用默认参数
+int main()
+{
+	CustomParam custopar={0};
+	//输入参数
+	
+	//Noiselevel 噪声水平
+	custopar.Noiselevel.NoiseLevellowthresh = 4;  //低噪声阈值，小于此阈值图片低噪声，取值大于0
+	custopar.Noiselevel.Noiselevelhighthresh = 20; //高噪声阈值，大于此阈值图片高噪声，取值大于0
+													//两值中间，图片中等噪声，高噪声阈值应大于低噪声阈值
+	//	ClearLevel 清晰度											
+	custopar.ClearLevel.ClearLevellowthresh = 1.4;  //低模糊度阈值，小于此阈值图片低模糊，取值大于0
+	custopar.ClearLevel.ClearLevelhighthresh = 20;   //高模糊度阈值，大于此阈值图片高模糊，取值大于0
+													//两值中间，图片中等模糊，高模糊度阈值应大于低模糊度阈值
+	//	Light  亮度									
+	custopar.Light.darkthresh = -0.5;  //暗度阈值，小于此阈值图片过暗，取值-1~0
+	custopar.Light.lightthresh = 0.5;   //亮度阈值，大于此阈值图片过亮，取值 0~1
+										//两值中间，图片亮度正常，亮度阈值应大于暗度阈值，且亮度阈值应为正数，暗度阈值应为负值
+	//	castRatioThresh 偏色								
+	custopar.castRatioThresh = 50;  //偏色阈值，大于此阈值图像偏色，取值范围0~100
+
+	//ImgFrozen  图像冻结
+	custopar.ImgFrozen.diff1 = 0.92;//图像相似度 0-1 越高越严格
+	custopar.ImgFrozen.diff2 = 0.98;//图像相似度 0-1 越高越严格
+	custopar.ImgFrozen.Hration = 0.7;//越小越严格 0-1，最大频数像素值百分比
+	custopar.ImgFrozen.ratio = 0.025;//越大越严格 0-1，图像边缘占比
+
+	//SignalLost  信号丢失
+	custopar.SignalLost.diff = 0.92;//图像相似度 ，0-1 ，越高越严格
+	custopar.SignalLost.blackbackground.grayNum =35;//越小越严格，0-255，满足灰度丰富度的像素值的个数
+	custopar.SignalLost.blackbackground.Hration = 0.85; // 越大越严格，0 - 1 ，最大频数像素值百分比
+	custopar.SignalLost.blackbackground.label = 25;//越小越严格，0-255，最大频数像素值
+	custopar.SignalLost.nonblackbackground.charcornersnum = 27;// 越大越严格 ，大于0，角点个数
+	custopar.SignalLost.nonblackbackground.lostpercent = 0.7;// 越大越严格，0 - 1，满足条件的区域个数占比
+	custopar.SignalLost.nonblackbackground.GradSum = 770.0;//越大越严格，0 - 6800，字符边缘个数
+	custopar.SignalLost.nonblackbackground.meandiff = 70.0;// 越大越严格 ，大于0 ，高斯混合模型（gmm）的两个平均值之差的绝对值
+	custopar.SignalLost.nonblackbackground.priors0 = 0.3;// 越大越严格，0 - 1 ，高斯混合模型（gmm）的第一个先验值
+	custopar.SignalLost.nonblackbackground.priors1 = 0.3;// 越大越严格，0 - 1 ，高斯混合模型（gmm）的第二个先验值
+	custopar.SignalLost.nonblackbackground.sigma0 = 500.0;//越小越严格 ，大于0 ，高斯混合模型（gmm）的第一个协方差
+	custopar.SignalLost.nonblackbackground.sigma1 = 1500.0;//越小越严格，大于0  ，高斯混合模型（gmm）的第二个协方差
+
+HYIQ_LOST(HYIQHandle,&imgiq1,&imgiq2,&p1, &custopar);  //多了一个参数
+HYIQ_FROZEN(HYIQHandle, &imgiq1, &imgiq2, &p1, &custopar);//多了一个参数
+}

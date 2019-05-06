@@ -5,14 +5,6 @@
 #include <time.h>
 
 
-//#include <boost/filesystem.hpp>
-//#include <boost/thread.hpp>
-//#include <boost/thread/condition.hpp>
-//#include <boost/thread/mutex.hpp>
-//#include <boost/lexical_cast.hpp>
-//#include <boost/timer.hpp>
-//#include <boost/bind.hpp>
-
 #include "windows.h"  
 #include  "conio.h "  
   
@@ -56,20 +48,6 @@ int DigitalRecog(HYDR_RESULT_LIST resultlist);
 char imgname[50]="20170508200846.jpg"; 
  char filename[100]="../";
 char resultname[100]="../";
-
-double showMemoryInfo()   
-{   
-  double MemorySize;         //单位MB 
-  HANDLE handle=GetCurrentProcess();   
-  
-  PROCESS_MEMORY_COUNTERS pmc;   
-  GetProcessMemoryInfo(handle,&pmc,sizeof(pmc));  
-  MemorySize=pmc.WorkingSetSize/1024; 
-  
-  printf("内存使用: %8lf \n",MemorySize);  //WorkingSetSize The current working set size, in bytes. 
-  
-  return MemorySize; 
-} 
 
 int main()
 {
@@ -187,15 +165,6 @@ int DigitalTrain(HYDR_RESULT_LIST *resultlist)
 	printf("交互完成\n");
 	cvDestroyWindow("TrainImage2");
 	
-	/*resultlist->lAreaNum=2;
-    resultlist->DRArea[0].left = 755;
-	resultlist->DRArea[0].top = 386; 	
-	resultlist->DRArea[0].right = 1001;
-	resultlist->DRArea[0].bottom = 541 ; 
-	resultlist->DRArea[1].left = 803;
-	resultlist->DRArea[1].top = 439; 	
-	resultlist->DRArea[1].right = 965;
-	resultlist->DRArea[1].bottom = 507 ;*/ 
 	cvSetImageROI(pOrgImg,cvRect(resultlist->DRArea[1].left,resultlist->DRArea[1].top,resultlist->DRArea[1].right-resultlist->DRArea[1].left,resultlist->DRArea[1].bottom-resultlist->DRArea[1].top));
 	cvSaveImage("../cut.jpg",pOrgImg);
 	cvResetImageROI(pOrgImg);
@@ -306,221 +275,103 @@ int DigitalRecog(HYDR_RESULT_LIST resultlist)
 		//pImg = cvLoadImage(filename,CV_LOAD_IMAGE_COLOR);
 		n=n+1;
 		//if(n%24 > 0)continue;
-	src.lHeight = pImg->height;
-	src.lWidth = pImg->width;
-	src.lPixelArrayFormat = HYL_IMAGE_BGR;
-	src.pixelArray.chunky.pPixel = pImg->imageData;
-	src.pixelArray.chunky.lLineBytes = pImg->widthStep;
-	HYL_GetDashboard(MHandle, &src, "OK", 0.45, centre);//匹配模板,求图像偏移量
-    resultlist.offset.x=centre->x-resultlist.origin.x;
-	resultlist.offset.y=centre->y-resultlist.origin.y;
+		src.lHeight = pImg->height;
+		src.lWidth = pImg->width;
+		src.lPixelArrayFormat = HYL_IMAGE_BGR;
+		src.pixelArray.chunky.pPixel = pImg->imageData;
+		src.pixelArray.chunky.lLineBytes = pImg->widthStep;
+		HYL_GetDashboard(MHandle, &src, "OK", 0.45, centre);//匹配模板,求图像偏移量
+		resultlist.offset.x=centre->x-resultlist.origin.x;
+		resultlist.offset.y=centre->y-resultlist.origin.y;
 
-	resultlist.offset.x=0;
-	resultlist.offset.y=0;
-	int j=0;
-    DRRECT rtArea;
-	for(int i=1;i<resultlist.lAreaNum;i++)
-	{
-		/*if(SIGAR_OK != sigar_proc_mem_get(p_sigar, pid, &procmem)){
-		return false;
-		}
-		if(SIGAR_OK != sigar_proc_cpu_get(p_sigar, pid, &proccpu)){
-			return false;
-		}
-
-		if(SIGAR_OK != sigar_proc_state_get(p_sigar, pid, &procstate)){
-			return false;
-		}
-		printf("begin:size=%d,resident=%d,share=%d\n",procmem.size,procmem.resident,procmem.share);*/
-	    IplImage *RectImg=NULL;
-		IplImage *RectImgtmp=NULL;
-		IplImage *NumImg=NULL;
-		IplImage *NumImgG=NULL;
-		IplImage *dst=NULL;
-
-
-		rtArea.bottom=MAX(resultlist.DRArea[i].bottom,resultlist.DRArea[i].top)+resultlist.offset.y;
-		rtArea.left = MIN(resultlist.DRArea[i].left,resultlist.DRArea[i].right)+resultlist.offset.x;
-		rtArea.top = MIN(resultlist.DRArea[i].bottom,resultlist.DRArea[i].top)+resultlist.offset.y;
-		rtArea.right = MAX(resultlist.DRArea[i].left,resultlist.DRArea[i].right)+resultlist.offset.x;
-
-		//rtArea.bottom = resultlist.DRArea[i].bottom+resultlist.offset.y;
-		//rtArea.left = resultlist.DRArea[i].left+resultlist.offset.x;
-		//rtArea.top = resultlist.DRArea[i].top+resultlist.offset.y;
-		//rtArea.right = resultlist.DRArea[i].right+resultlist.offset.x;
-		if(rtArea.bottom >= imgs.lHeight)rtArea.bottom=rtArea.bottom-1;
-		if(rtArea.right >= imgs.lWidth )rtArea.right=rtArea.right-1;
-		if(rtArea.left < 0 )rtArea.left=0;
-		if(rtArea.top < 0 )rtArea.top =0;
-		RectImg = cvCreateImage(cvSize(rtArea.right-rtArea.left,rtArea.bottom-rtArea.top), pImg->depth, pImg->nChannels);
-		cvSetImageROI(pImg,cvRect(rtArea.left,rtArea.top,rtArea.right-rtArea.left,rtArea.bottom-rtArea.top));
-		cvCopy(pImg,RectImg);
-		cvResetImageROI(pImg);
-		cvSaveImage("D:\\RectImg.bmp", RectImg);
-
-		if (!RectImg||!RectImg->height||!RectImg->width)
+		resultlist.offset.x=0;
+		resultlist.offset.y=0;
+		int j=0;
+		DRRECT rtArea;
+		for(int i=1;i<resultlist.lAreaNum;i++)
 		{
-			printf("Error when cut image.\n");   
-			j=j+1;
-			continue;
-		}
-		imgs.lHeight = RectImg->height;
-		imgs.lWidth = RectImg->width;
-		imgs.pixelArray.chunky.lLineBytes = RectImg->widthStep;
-		imgs.pixelArray.chunky.pPixel = RectImg->imageData;
-	    Tmpresultlist.lResultNum=0;
-		int timestart,timeend;
-		double time;
-		//timestart=GetTickCount();
-		//HYDR_DigitRecog(hTLHandle,&imgs,&Tmpresultlist);
-		if(0!=HYDR_DigitRecog_GPU(hTLHandle,&imgs,&Tmpresultlist))
-		{
-			printf("HYDR_DigitRecog error.\n");
-			HYDR_Uninit_GPU(hTLHandle);
-			return -1;
-		}
-		//timeend=GetTickCount();
-		//time=(double)(timeend-timestart)/1000;
-		//printf("时间%f\n\n",time);
-		resultlist.pResult[i-j].dVal=Tmpresultlist.pResult[0].dVal;
-		resultlist.pResult[i-j].Target.left=Tmpresultlist.pResult[0].Target.left+rtArea.left;
-		resultlist.pResult[i-j].Target.right=Tmpresultlist.pResult[0].Target.right+rtArea.left;
-		resultlist.pResult[i-j].Target.top=Tmpresultlist.pResult[0].Target.top+rtArea.top;
-		resultlist.pResult[i-j].Target.bottom=Tmpresultlist.pResult[0].Target.bottom+rtArea.top;
-
-		//if(resultlist.pResult[i-j].dVal > 300)
-		//{
-		//	cvSaveImage("D:\\RectImg111.bmp", RectImg);
-		//	printf("1111111111111111111111\n");
-		//	for(int q=1;q<7;q++)
-		//{
-		//	Mat img;  
-		//	Mat gray,color; 
-		//	Mat tmp_m, tmp_sd; 
-		//	 double m = 0, sd = 0;
-		//	int left=Tmpresultlist.pResult[q].Target.left;
-		//	int right=Tmpresultlist.pResult[q].Target.right;
-		//	int top=Tmpresultlist.pResult[q].Target.top;
-		//	int bottom=Tmpresultlist.pResult[q].Target.bottom;
-		//	printf("left=%d right=%d top=%d bottom=%d\n",left,right,top,bottom);
-		//	if(left < 0)break;
-		//	RectImgtmp = cvCreateImage(cvSize(right-left,bottom-top), pImg->depth, pImg->nChannels);
-
-		//	cvSetImageROI(RectImg,cvRect(left,top,right-left,bottom-top));
-		//	cvCopy(RectImg,RectImgtmp);
-		//	cvResetImageROI(RectImg);
-		//	cvShowImage("RectImg Show", RectImgtmp);
-		//	cvSaveImage("D:\\RectImg222.bmp", RectImgtmp);
-		//	img=Mat(RectImgtmp,true);
-		//	cvtColor(img, gray, CV_RGB2GRAY);  
-		//	 m = mean(gray)[0];
-		//	 cout << "Mean: " << m << endl; 
-		//	//cv::meanStdDev();
-		//	meanStdDev(gray, tmp_m, tmp_sd);  
-		//	  m = tmp_m.at<double>(0,0);  
-		//	 sd = tmp_sd.at<double>(0,0); 
-		//	 cout << "Mean: " << m << " , StdDev: " << sd << endl;  
-		//}
-		//	cvWaitKey(0);
-		//}
-	 //   
-		//	for(int q=1;q<7;q++)
-		//{
-		//	Mat img;  
-		//	Mat gray,color; 
-		//	Mat tmp_m, tmp_sd; 
-		//	 double m = 0, sd = 0;
-		//	int left=Tmpresultlist.pResult[q].Target.left;
-		//	int right=Tmpresultlist.pResult[q].Target.right;
-		//	int top=Tmpresultlist.pResult[q].Target.top;
-		//	int bottom=Tmpresultlist.pResult[q].Target.bottom;
-		//	printf("left=%d right=%d top=%d bottom=%d\n",left,right,top,bottom);
-		//	left=RectImg->width*0.85;
-		//	right=RectImg->width*0.95;
-		//	if(left < 0)
-		//		break;
-		//	RectImgtmp = cvCreateImage(cvSize(right-left,bottom-top), pImg->depth, pImg->nChannels);
-
-		//	cvSetImageROI(RectImg,cvRect(left,top,right-left,bottom-top));
-		//	cvCopy(RectImg,RectImgtmp);
-		//	cvResetImageROI(RectImg);
-		//	cvShowImage("RectImg Show", RectImgtmp);
-		//	cvSaveImage("D:\\RectImg222.bmp", RectImgtmp);
-		//	img=Mat(RectImgtmp,true);
-		//	cvtColor(img, gray, CV_RGB2GRAY);  
-		//	 m = mean(gray)[0];
-		//	 cout << "Mean: " << m << endl; 
-		//	//cv::meanStdDev();
-		//	meanStdDev(gray, tmp_m, tmp_sd);  
-		//	  m = tmp_m.at<double>(0,0);  
-		//	 sd = tmp_sd.at<double>(0,0); 
-		//	 cout << "Mean: " << m << " , StdDev: " << sd << endl;  
-		//}
-
-		cvReleaseImage(&RectImg);
-		/*int tmpleft=resultlist.pResult[i-j].Target.left;
-		int tmpright=resultlist.pResult[i-j].Target.right;
-		int tmptop=resultlist.pResult[i-j].Target.top;
-		int tmpbottom=resultlist.pResult[i-j].Target.bottom;
-		int tmpw=1.2*(tmpright-tmpleft);
-		int tmph=1.2*(tmpbottom-tmptop);
-
-
-		NumImg = cvCreateImage(cvSize(tmpw,tmph), pImg->depth, pImg->nChannels);
-		dst = cvCreateImage(cvSize(tmpw,tmph), pImg->depth, pImg->nChannels);
-		NumImgG = cvCreateImage(cvSize(NumImg->width,NumImg->height),NumImg->depth,1);
-		cvSetImageROI(pImg,cvRect(tmpleft,tmptop,tmpw,tmph));
-		cvCopy(pImg,NumImg);
-		cvResetImageROI(pImg);
-		cvCvtColor(NumImg,NumImgG,CV_BGR2GRAY);
-		cvSmooth(NumImg,dst);
-		cvSaveImage("D:\\NumImg.bmp", NumImg);
-		cvSaveImage("D:\\dst.bmp", dst);
-		cvSaveImage("D:\\NumImgG.bmp", NumImgG);*/
-
-
-
-
-		//i=i-1;
 		
-		/*if(SIGAR_OK != sigar_proc_mem_get(p_sigar, pid, &procmem)){
-			return false;
-		}
-		if(SIGAR_OK != sigar_proc_cpu_get(p_sigar, pid, &proccpu)){
-			return false;
-		}
+			IplImage *RectImg=NULL;
+			IplImage *RectImgtmp=NULL;
+			IplImage *NumImg=NULL;
+			IplImage *NumImgG=NULL;
+			IplImage *dst=NULL;
 
-		if(SIGAR_OK != sigar_proc_state_get(p_sigar, pid, &procstate)){
-			return false;
-		}
-		printf("end:size=%d,resident=%d,share=%d\n",procmem.size,procmem.resident,procmem.share);*/
-	}
 
+			rtArea.bottom=MAX(resultlist.DRArea[i].bottom,resultlist.DRArea[i].top)+resultlist.offset.y;
+			rtArea.left = MIN(resultlist.DRArea[i].left,resultlist.DRArea[i].right)+resultlist.offset.x;
+			rtArea.top = MIN(resultlist.DRArea[i].bottom,resultlist.DRArea[i].top)+resultlist.offset.y;
+			rtArea.right = MAX(resultlist.DRArea[i].left,resultlist.DRArea[i].right)+resultlist.offset.x;
+
+			//rtArea.bottom = resultlist.DRArea[i].bottom+resultlist.offset.y;
+			//rtArea.left = resultlist.DRArea[i].left+resultlist.offset.x;
+			//rtArea.top = resultlist.DRArea[i].top+resultlist.offset.y;
+			//rtArea.right = resultlist.DRArea[i].right+resultlist.offset.x;
+			if(rtArea.bottom >= imgs.lHeight)rtArea.bottom=rtArea.bottom-1;
+			if(rtArea.right >= imgs.lWidth )rtArea.right=rtArea.right-1;
+			if(rtArea.left < 0 )rtArea.left=0;
+			if(rtArea.top < 0 )rtArea.top =0;
+			RectImg = cvCreateImage(cvSize(rtArea.right-rtArea.left,rtArea.bottom-rtArea.top), pImg->depth, pImg->nChannels);
+			cvSetImageROI(pImg,cvRect(rtArea.left,rtArea.top,rtArea.right-rtArea.left,rtArea.bottom-rtArea.top));
+			cvCopy(pImg,RectImg);
+			cvResetImageROI(pImg);
+			cvSaveImage("D:\\RectImg.bmp", RectImg);
+
+			if (!RectImg||!RectImg->height||!RectImg->width)
+			{
+				printf("Error when cut image.\n");   
+				j=j+1;
+				continue;
+			}
+			imgs.lHeight = RectImg->height;
+			imgs.lWidth = RectImg->width;
+			imgs.pixelArray.chunky.lLineBytes = RectImg->widthStep;
+			imgs.pixelArray.chunky.pPixel = RectImg->imageData;
+			Tmpresultlist.lResultNum=0;
+			int timestart,timeend;
+			double time;
+			//timestart=GetTickCount();
+			//HYDR_DigitRecog(hTLHandle,&imgs,&Tmpresultlist);
+			if(0!=HYDR_DigitRecog_GPU(hTLHandle,&imgs,&Tmpresultlist))
+			{
+				printf("HYDR_DigitRecog error.\n");
+				HYDR_Uninit_GPU(hTLHandle);
+				return -1;
+			}
+			//timeend=GetTickCount();
+			//time=(double)(timeend-timestart)/1000;
+			//printf("时间%f\n\n",time);
+			resultlist.pResult[i-j].dVal=Tmpresultlist.pResult[0].dVal;
+			resultlist.pResult[i-j].Target.left=Tmpresultlist.pResult[0].Target.left+rtArea.left;
+			resultlist.pResult[i-j].Target.right=Tmpresultlist.pResult[0].Target.right+rtArea.left;
+			resultlist.pResult[i-j].Target.top=Tmpresultlist.pResult[0].Target.top+rtArea.top;
+			resultlist.pResult[i-j].Target.bottom=Tmpresultlist.pResult[0].Target.bottom+rtArea.top;
+			cvReleaseImage(&RectImg);
+		
+		}
+		////cvDestroyWindow("Result Show");
+		for (int i=1; i<resultlist.lAreaNum; i++)
+		{
+			CvPoint ptStart, ptStop, ptText;
+			char text[256]={0};
+			CvFont font;
+			ptStart.x = resultlist.pResult[i].Target.left;
+			ptStart.y = resultlist.pResult[i].Target.top;
+			ptStop.x = resultlist.pResult[i].Target.right;
+			ptStop.y = resultlist.pResult[i].Target.bottom;
+			ptText.x = resultlist.pResult[i].Target.left;
+			ptText.y = resultlist.pResult[i].Target.bottom;
+			if (ptText.y<pImg->height-10)
+				ptText.y += 10;
+			cvRectangle(pImg, ptStart, ptStop, cvScalar(0,0,255));
+			sprintf(text, "val=%.2lf", resultlist.pResult[i].dVal);
+			cvInitFont(&font, CV_FONT_HERSHEY_SIMPLEX, 0.2f, 0.5f);
+			cvPutText(pImg, text, ptText, &font,  cvScalar(0,255,0));
 	
-
-	////cvDestroyWindow("Result Show");
-	for (int i=1; i<resultlist.lAreaNum; i++)
-	{
-		CvPoint ptStart, ptStop, ptText;
-		char text[256]={0};
-		CvFont font;
-		ptStart.x = resultlist.pResult[i].Target.left;
-		ptStart.y = resultlist.pResult[i].Target.top;
-		ptStop.x = resultlist.pResult[i].Target.right;
-		ptStop.y = resultlist.pResult[i].Target.bottom;
-		ptText.x = resultlist.pResult[i].Target.left;
-		ptText.y = resultlist.pResult[i].Target.bottom;
-		if (ptText.y<pImg->height-10)
-			ptText.y += 10;
-		cvRectangle(pImg, ptStart, ptStop, cvScalar(0,0,255));
-		sprintf(text, "val=%.2lf", resultlist.pResult[i].dVal);
-		cvInitFont(&font, CV_FONT_HERSHEY_SIMPLEX, 0.2f, 0.5f);
-		cvPutText(pImg, text, ptText, &font,  cvScalar(0,255,0));
-	
-	}
-	//cvSaveImage(resultname, pImg);
-	cvShowImage("Result Show", pImg);
-	cvWaitKey(0);
+		}
+		//cvSaveImage(resultname, pImg);
+		cvShowImage("Result Show", pImg);
+		cvWaitKey(0);
 	}
 	/*cvNamedWindow("Result Show");
 	cvShowImage("Result Show", pImg);*/

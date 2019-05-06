@@ -1,7 +1,10 @@
 include config_c10
 
 CFLAGS = -lm
+OPTS=-Ofast
+CFLAGS+=-Wall -Wfatal-errors -fPIC -fvisibility=hidden
 
+CFLAGS+=$(OPTS)
 MACROS	 = $(PLAT_MACROS) $(OTHER_MACROS)
 MACROS	:= $(patsubst %,-D%,$(MACROS))
 
@@ -73,15 +76,9 @@ COBJ13		:= $(patsubst $(SRCPATH13)%.c,%.o,$(SRC13))
 COBJS		:= $(patsubst %,$(OBJPATH)%,$(COBJ1) $(COBJ2) $(COBJ3) $(COBJ4) $(COBJ5) $(COBJ6) $(COBJ7) $(COBJ8) $(COBJ9) $(COBJ10) $(COBJ11) $(COBJ12) $(COBJ13)) 
 
 
-STATICOUT= $(LIBDIR)$(LIBNAME).a
-
-lib: $(COBJS) 
-	mkdir -p $(LIBDIR)
-	$(AR)  -cqs $(STATICOUT) $(COBJS)
-
 dll: $(COBJS)
 	mkdir -p $(LIBDIR)
-	$(CC) $^ -o $(LIBDIR)lib$(LIBNAME).so $(LIBS)
+	$(CC) $(CFLAGS) -shared $^ -o $(LIBDIR)lib$(LIBNAME).so $(LIBS)
 
 
 $(OBJPATH)%.o: $(SRCPATH1)%.c

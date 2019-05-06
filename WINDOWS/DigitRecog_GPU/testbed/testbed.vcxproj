@@ -172,12 +172,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="putText.cpp" />
     <ClCompile Include="testbed.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\DigitalRecog.h" />
-    <ClInclude Include="putText.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

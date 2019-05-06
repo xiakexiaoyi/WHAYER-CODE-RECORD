@@ -229,7 +229,7 @@ int KnobRecog(HYKR_RESULT_LIST resultlist)
 	MVoid *pMem=NULL;
 	HYL_IMAGES src = {0};
 	char *cfgfile="../../model/tiny-yolo-voc.cfg";
-	char *weightfile="../../model/tiny-yolo-voc_60000.weights";// ??? 
+	char *weightfile="../../model/tiny-yolo-voc_final.weights";// ??? 
 	//char *filename="../1.jpg";
     MPOINT *centre;
 	//HYLR_RESULT_LIST Tmpresultlist = {0};

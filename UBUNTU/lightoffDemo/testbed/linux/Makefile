@@ -11,8 +11,7 @@ LFLAGS = -lm
 TARGET = testBed
 
 
-libpath=../../libs/linux/Lightoff.a 
-libpath+= ../../libs/linux/MatchRigidBody.a   \
+libpath=-L ../../libs/linux/ -lLightoff -lMatchRigidBody   \
 	`pkg-config --libs opencv`
 
 

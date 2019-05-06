@@ -1,1 +1,6 @@
-共用算法库gpu和cpu是同一个库
+算法库中yolo算法库是yolo库的cpu版本，yolo算法库GPU是yolo库的gpu版本。
+
+共用算法库不区分cpu和gpu。
+
+
+yolov3成都低版本编译通过中，修改了接口名称

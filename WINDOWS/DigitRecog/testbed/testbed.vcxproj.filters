@@ -15,17 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="putText.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="testbed.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="putText.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\DigitalRecog.h">
       <Filter>头文件</Filter>
     </ClInclude>

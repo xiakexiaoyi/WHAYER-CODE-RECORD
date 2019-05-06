@@ -151,7 +151,7 @@ int HYDSR_StateRecog(void *hMRHandle,DSR_IMAGES *pImg,HYDSR_RESULT_LIST *pResult
 		goto EXT;
 	}
 	COM_free_image(out);
-
+	printf("bbox_out.num=%d\n", bbox_out.num);
 	if(bbox_out.num == 0)
 	{
 		//printf("Î´ÕÒµ½Ä¿±ê\n");
